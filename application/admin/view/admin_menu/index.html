@@ -1,0 +1,67 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">后台菜单</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="{:url('admin/admin_menu/add')}">
+  <i class="layui-icon">&#xe608;</i> 添加顶级
+</button>
+<hr>
+菜单树
+<hr>
+<ul id="menutree"></ul>
+<hr>
+<table class="layui-table" lay-even="" lay-skin="nob">
+	<colgroup>
+		<col width="150">
+		<col width="200">
+		<col>
+	</colgroup>
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>菜单名</th>
+		<th>模块</th>
+		<th>控制器</th>
+		<th>方法</th>
+		<th>状态</th>
+		<th>操作</th>
+	</tr> 
+	</thead>
+	<tbody>
+	{volist name='list' id='vo'}
+	<tr>
+		<td>{$vo.id}</td>
+		<td>{$vo._name}</td>
+		<td>{$vo.module}</td>
+		<td>{$vo.controller}</td>
+		<td>{$vo.method}</td>
+		<td>{$vo.status?'显示':'隐藏'}</td>
+		<td>			
+			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini add" href-url="{:url('admin/admin_menu/add?pid='.$vo['id'])}">增加子菜单</button>		
+				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/admin_menu/update?id='.$vo['id'])}">编辑菜单</button>
+				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/admin_menu/delete?id='.$vo['id'])}">删除</button>{/if}
+			</div>
+		</td>
+	</tr>
+	{/volist}
+	</tbody>
+</table>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+;!function(){
+	layui.tree({
+		elem: '#menutree', //传入元素选择器-
+		nodes: {$menutree},
+		click: function(node){
+			layer.open({
+				title: '信息',
+				content: 'ID:'+node.id+'<br/>名字:'+node.name+'<br/>状态:'+node.status,
+			});   
+		}
+	});
+}();
+</script>
+{/block}

@@ -1,0 +1,45 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">内容</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="{:url('content/add')}">
+  <i class="layui-icon">&#xe608;</i> 添加内容
+</button>
+<hr>
+<table class="layui-table" lay-even="" lay-skin="nob">
+	<colgroup>
+		<col width="150">
+		<col width="200">
+		<col>
+	</colgroup>
+	<thead>
+	<tr >
+		<th>ID</th>
+		<th>标题</th>
+		<th>添加时间</th>
+		<th>状态</th>
+		<th>操作</th>
+	</tr> 
+	</thead>
+	<tbody>
+	{volist name='list' id='vo'}
+	<tr title="{$vo.describe}">
+		<td>{$vo.id}</td>
+		<td>{$vo.title}</td>
+		<td>{$vo.status?'on':'off'}</td>
+		<td>			
+			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini add" href-url="{:url('admin/content/add?pid='.$vo['id'])}">增加子分类</button>		
+				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/content/update?id='.$vo['id'])}">编辑</button>
+				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/content/delete?id='.$vo['id'])}">删除</button>{/if}
+			</div>
+		</td>
+	</tr>
+	{/volist}
+	</tbody>
+</table>
+{/block}
+{block name="js"}
+
+{/block}

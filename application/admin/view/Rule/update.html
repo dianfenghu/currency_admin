@@ -1,0 +1,42 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑权限规则|{$vo.title}</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='POST'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">唯一标识</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" value="{$vo.name}" required="" lay-verify="required" placeholder="请输入权限规则唯一标识" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" value="{$vo.title}" required="" lay-verify="required" placeholder="请输入权限规则名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">分类（模块名）</label>
+			<div class="layui-input-block">
+				<input type="text" name="type" value="{$vo.type}" required="" value='x' lay-verify="required" placeholder="请输入分类（模块名）" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">表达式</label>
+			<div class="layui-input-block">
+				<input type="text" name="condition" value="{$vo.condition}" required="" value='x' lay-verify="" placeholder="请输入权限规则表达式，为空表示存在就验证，不为空表示按照条件验证" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+	        <label class="layui-form-label">状态开关</label>
+	        <div class="layui-input-block">
+	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="激活|隐藏">
+	        </div>
+	    </div>
+		<div class="layui-form-item">
+		<input type="hidden" name='id' value="{$vo.id}">
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="{:url('rule/update?id='.$vo.id)}">立即提交</button>
+		</div>
+	</form>
+</div>
+{/block}

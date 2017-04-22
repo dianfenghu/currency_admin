@@ -1,0 +1,125 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+{php}
+    //检测PHP设置参数
+    function show($varName){
+        switch($result = get_cfg_var($varName)){
+            case 0:
+                return '<font color="red">×</font>';
+            break;
+            case 1:
+                return '<font color="green">√</font>';
+            break;
+            default:
+                return $result;
+            break;
+        }
+    }
+{/php}
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>服务器配置</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="50">
+            <col width="150">
+            <col width="50">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>服务器域名</td>
+            <td colspan="3">{php} echo $_SERVER['SERVER_NAME'];{/php}
+                ({php} if('/'==DIRECTORY_SEPARATOR){echo $_SERVER['SERVER_ADDR'];}else{echo @gethostbyname($_SERVER['SERVER_NAME']);} {/php})
+            </td>
+        </tr>
+        <tr>
+            <td>服务器操作系统</td>
+            <td>{php} $os = explode(" ", php_uname()); echo $os[0];{/php}
+                &nbsp;内核版本：{php} if('/'==DIRECTORY_SEPARATOR){echo $os[2];}else{echo $os[1];} {/php}</td>
+            <td>服务器解译引擎</td>
+            <td>{php} echo $_SERVER['SERVER_SOFTWARE'];{/php}</td>
+        </tr>
+        <tr>
+            <td>服务器语言</td>
+            <td>{php} echo getenv("HTTP_ACCEPT_LANGUAGE");{/php}</td>
+            <td>服务器端口</td>
+            <td>{php} echo $_SERVER['SERVER_PORT'];{/php}</td>
+        </tr>
+        <tr>
+            <td>服务器主机名</td>
+            <td>{php} if('/'==DIRECTORY_SEPARATOR ){echo $os[1];}else{echo $os[2];} {/php}</td>
+            <td>绝对路径</td>
+            <td>{php} echo $_SERVER['DOCUMENT_ROOT']?str_replace('\\','/',$_SERVER['DOCUMENT_ROOT']):str_replace('\\','/',dirname(__FILE__));{/php}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>PHP相关参数</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>PHP版本</td>
+            <td>{php} echo PHP_VERSION;{/php}</td>
+        </tr>
+        <tr>
+            <td>上传文件最大限制</td>
+            <td>{php} echo show("upload_max_filesize");{/php}</td>
+        </tr>
+        <tr>
+            <td>脚本占用最大内存</td>
+            <td>{php} echo show("memory_limit");{/php}</td>
+        </tr>
+        <tr>
+            <td>POST提交最大限制</td>
+            <td>{php} echo show("post_max_size");{/php}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>网站配置</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>网站标题</td>
+            <td>博客社区</td>
+        </tr>
+        <tr>
+            <td>网站logo</td>
+            <td><img src="/static/image/logo.png" style="width: 135px;height: 37px;"></td>
+        </tr>
+        <tr>
+            <td>keywords</td>
+            <td>Blog,博客，社区，讨论，论坛</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>博客讨论社区</td>
+        </tr>
+        <tr>
+            <td>网站总注册人数</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>网站在线人数</td>
+            <td>50</td>
+        </tr>
+        </tbody>
+    </table>
+
+{/block}

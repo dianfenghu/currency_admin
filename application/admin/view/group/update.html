@@ -1,0 +1,30 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑用户组|{$vo.title}</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='POST'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">用户组名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" required="" value="" lay-verify="required" placeholder="请输入用户组名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">规则ID</label>
+			<div class="layui-input-block">
+				<input type="text" name="rules" value="" required="" lay-verify="required" placeholder="请输入规则ID','相隔" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+	        <label class="layui-form-label">状态</label>
+	        <div class="layui-input-block">
+	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="激活|隐藏">
+	        </div>
+	    </div>
+		<div class="layui-form-item">
+		<input type="hidden" name='id' value="{$vo.id}">
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="{:url('group/update?id='.$vo.id)}">立即提交</button>
+		</div>
+	</form>
+</div>
+{/block}

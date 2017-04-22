@@ -1,0 +1,42 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">添加【{$pidname}】的子菜单</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='POST'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">菜单名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" required="" lay-verify="required" placeholder="请输入菜单名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">模块</label>
+			<div class="layui-input-block">
+				<input type="text" name="module" required="" lay-verify="required" placeholder="请输入模块" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">控制器</label>
+			<div class="layui-input-block">
+				<input type="text" name="controller" required="" lay-verify="required" placeholder="请输入控制器" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">方法</label>
+			<div class="layui-input-block">
+				<input type="text" name="method" required="" lay-verify="required" placeholder="请输入方法" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+	        <label class="layui-form-label">菜单显示</label>
+	        <div class="layui-input-block">
+	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="显示|隐藏">
+	        </div>
+	    </div>
+		<div class="layui-form-item">
+			<input type="hidden" name="pid" value='{$pid}'>
+		  	<button class="layui-btn" lay-submit="" lay-filter="formaddzi" href-url="{:url('admin_menu/add')}">立即提交</button>
+		</div>
+	</form>
+</div>
+{/block}

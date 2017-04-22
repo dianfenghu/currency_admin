@@ -1,0 +1,50 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">分类</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="{:url('admin/rule/add')}">
+  <i class="layui-icon">&#xe608;</i> 添加用户组规则
+</button>
+<hr>
+
+<table class="layui-table" lay-even="" lay-skin="">
+	<colgroup>
+		<col width="150">
+		<col width="200">
+		<col>
+	</colgroup>
+	<thead>
+	<tr >
+		<th>ID</th>
+		<th>规则标识</th>
+		<th>规则中文名</th>
+		<th>类型</th>
+		<th title="为空表示存在就验证，不为空表示按照条件验证">规则表达式</th>
+		<th>状态</th>
+		<th>操作</th>
+	</tr> 
+	</thead>
+	<tbody>
+	{volist name='list' id='vo'}
+	<tr>
+		<td>{$vo.id}</td>
+		<td>{$vo.name}</td>
+		<td>{$vo.title}</td>
+		<td>{$vo.type}</td>
+		<td>{$vo.condition}</td>
+		<td>{$vo.status?'激活':'禁用'}</td>
+		<td>			
+			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/rule/update?id='.$vo['id'])}">编辑</button>
+				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/rule/delete?id='.$vo['id'])}">删除</button>{/if}
+			</div>
+		</td>
+	</tr>
+	{/volist}
+	</tbody>
+</table>
+{/block}
+{block name="js"}
+
+{/block}

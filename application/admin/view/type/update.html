@@ -1,0 +1,36 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑分类|{$vo.name}</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='POST'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">分类名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" required="" value="{$vo.name}" lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">分类简述</label>
+			<div class="layui-input-block">
+				<input type="text" name="describe" value="{$vo.describe}" required="" lay-verify="required" placeholder="请输入分类简述" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+	        <label class="layui-form-label">分类显示</label>
+	        <div class="layui-input-block">
+	            <input type="checkbox" name="status" {$vo.status?'checked':''} lay-skin="switch" lay-text="激活|隐藏">
+	        </div>
+	    </div>
+	    <div class="layui-form-item">
+			<label class="layui-form-label">附表后缀</label>
+			<div class="layui-input-block">
+				<input type="text" name="info" required="" value='x' lay-verify="required" placeholder="请输入附表后缀" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+		<input type="hidden" name='id' value="{$vo.id}">
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="{:url('type/update?id='.$vo.id)}">立即提交</button>
+		</div>
+	</form>
+</div>
+{/block}
