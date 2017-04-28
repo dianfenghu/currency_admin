@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>首页</title>
    
-    {load href="/static/layui/css/layui.css" /}
-    {load href="/static/css/style.css" /}
+    {load href="__PUBLIC__/static/layui/css/layui.css" /}
+    {load href="__PUBLIC__/static/css/style.css" /}
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -64,7 +64,7 @@
 <div class="my-body">
     {block name="main"}主内容{/block}
 </div>
-{js href="/static/layui/lay/dest/layui.all.js" /}
+{js href="__PUBLIC__/static/layui/lay/dest/layui.all.js" /}
 <script type="text/javascript">
     ;!function(){
         var element = layui.element(),layer = layui.layer,$ = layui.jquery,util = layui.util,form = layui.form(); //导航的hover效果、二级菜单等功能，需要依赖element模块
