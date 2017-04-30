@@ -1,23 +1,21 @@
 {extend name="common@Public:admin" /}
 {block name="main"}
-<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">添加权限规则</a></legend></fieldset>
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">添加用户组</a></legend></fieldset>
 <div class="site-text">
 	<form class="layui-form layui-form-pane" action="" method='POST'>
 		<div class="layui-form-item">
 			<label class="layui-form-label">名称</label>
 			<div class="layui-input-block">
-				<input type="text" name="title" required="" lay-verify="required" placeholder="请输入权限规则名称" autocomplete="off" class="layui-input layui-form-danger">
+				<input type="text" name="title" required="" lay-verify="required" placeholder="请输入用户组名称" autocomplete="off" class="layui-input layui-form-danger">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">名称</label>
-			<div class="layui-input-block">
-				<volist name="data" id="vo">
-					<!-- <input type="radio" name="rules[]" value=""> -->
-				</volist>
-				<!-- <input type="text" name="title" required="" lay-verify="required" placeholder="请输入权限规则名称" autocomplete="off" class="layui-input layui-form-danger"> -->
-			</div>
-		</div>
+		<div class="layui-form-item" pane="">
+	    <label class="layui-form-label">状态</label>
+	    <div class="layui-input-block">
+	      <input type="radio" name="status" value="1" title="启用" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>启用</span></div>
+	      <input type="radio" name="status" value="0" title="禁用"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>禁用</span></div>
+	    </div>
+	  </div>
 		<div class="layui-form-item">
 		  <button class="layui-btn" lay-submit="" lay-filter="formadd" href-url="{:url('group/add')}">立即提交</button>
 		</div>

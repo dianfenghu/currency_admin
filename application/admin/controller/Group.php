@@ -46,16 +46,14 @@ class Group extends Adminbase
     //添加
     public function add(){
         if(!$this -> request -> isPost()){
-            $data = \app\admin\model\AuthRule::field('title,id')->select();
-            $this->assign('data', $data);
+            // $data = \app\admin\model\AuthRule::field('title,id')->select();
+            // $this->assign('data', $data);
             return $this->fetch();
         }
 
         $data = request()->post();
-        $data['status'] = 1;
-        dd(request());
         //执行公共方法doadd 添加单条数据并返回id 
-        $res = $this -> doadd('AuthGroup',$data);
+        $res = $this -> doadd('auth_group',$data);
         if($res){
             $data['id'] = $res;
             return json($data);
@@ -85,6 +83,10 @@ class Group extends Adminbase
         $this -> save('auth_rule',$data);
         return json($data);
         
-    }       
+    } 
+
+    public function  fenpei() {
+        return $this->fetch();
+    }     
 }
 

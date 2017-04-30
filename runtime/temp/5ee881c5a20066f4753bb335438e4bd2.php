@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\user\update.html";i:1493454963;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>首页</title>
    
-    {load href="__PUBLIC__/static/layui/css/layui.css" /}
-    {load href="__PUBLIC__/static/css/style.css" /}
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
 <div class="my-header">
     <a href="javascript:;">
         <!--<img class="my-header-logo" src="" alt="logo">-->
-        <a href="{:url('admin/index/index')}"><div class="my-header-logo">后台管理系统</div></a>
+        <a href="<?php echo url('admin/index/index'); ?>"><div class="my-header-logo">后台管理系统</div></a>
     </a>
     <!-- <ul class="layui-nav" lay-filter="">
         <li class="layui-nav-item"><a href="javascript:;">列1</a></li>
@@ -42,29 +43,71 @@
 </div>
 <div class="my-side">
     <ul class="layui-nav layui-nav-tree" lay-filter="side">
-        <li class="layui-nav-item"><a href="javascript:;" href-url="{:url('index/wwwset')}">网站设置</a></li>
-        {if($debug == true)}<li class="layui-nav-item"><a href="javascript:;" href-url="{:url('AdminMenu/index')}">后台菜单</a></li>{/if}     
-        {volist name="adminmenu" id="vomenu"}
-            {eq name="vomenu.method" value="x"}
+        <li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url('index/wwwset'); ?>">网站设置</a></li>
+        <?php if(($debug == true)): ?><li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url('AdminMenu/index'); ?>">后台菜单</a></li><?php endif; if(is_array($adminmenu) || $adminmenu instanceof \think\Collection || $adminmenu instanceof \think\Paginator): $i = 0; $__LIST__ = $adminmenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vomenu): $mod = ($i % 2 );++$i;if($vomenu['method'] == 'x'): ?>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">{$vomenu.name}</a>
+                    <a href="javascript:;"><?php echo $vomenu['name']; ?></a>
                     <dl class="layui-nav-child">
-                        {volist name='vomenu.son' id='sonmenu'}
-                        <dd class=""><a href="javascript:;" href-url="{:url($sonmenu['controller'].'/'.$sonmenu['method'])}">{$sonmenu.name}</a></dd>
-                        {/volist}
+                        <?php if(is_array($vomenu['son']) || $vomenu['son'] instanceof \think\Collection || $vomenu['son'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vomenu['son'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonmenu): $mod = ($i % 2 );++$i;?>
+                        <dd class=""><a href="javascript:;" href-url="<?php echo url($sonmenu['controller'].'/'.$sonmenu['method']); ?>"><?php echo $sonmenu['name']; ?></a></dd>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </dl>
                 </li>
-            {else/}
-                <li class="layui-nav-item"><a href="javascript:;" href-url="{:url($vomenu['controller'].'/'.$vomenu['method'])}">{$vomenu.name}</a></li>
-            {/eq}
-        {/volist}
+            <?php else: ?>
+                <li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url($vomenu['controller'].'/'.$vomenu['method']); ?>"><?php echo $vomenu['name']; ?></a></li>
+            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
         
     </ul>
 </div>
 <div class="my-body">
-    {block name="main"}主内容{/block}
+    
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑用户</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='POST'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">用户名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" required="" value="<?php echo $vo['name']; ?>" lay-verify="required" placeholder="请输入用户名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">新密码</label>
+			<div class="layui-input-block">
+				<input type="text" name="password" value="" placeholder="请输入新密码" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">确认密码</label>
+			<div class="layui-input-block">
+				<input type="text" name="repassword" value="" placeholder="请再次输入新密码" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+    <label class="layui-form-label">用户组</label>
+    <div class="layui-input-inline">
+      <select name="group_id">
+		<?php if(is_array($group) || $group instanceof \think\Collection || $group instanceof \think\Paginator): $i = 0; $__LIST__ = $group;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$g): $mod = ($i % 2 );++$i;?>
+        <option value="<?php echo $g['id']; ?>" <?php if($g['id'] == $vo['group_id']): ?> checked <?php endif; ?>><?php echo $g['title']; ?></option>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      </select>
+    </div>
+  </div>
+		<div class="layui-form-item" pane="">
+	    <label class="layui-form-label">状态</label>
+	    <div class="layui-input-block">
+	      <input type="radio" name="status" value="1" title="启用" <?php if($vo['status'] == 1): ?> checked <?php endif; ?>><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring"></i><span>启用</span></div>
+	      <input type="radio" name="status" value="0" <?php if($vo['status'] == 0): ?> checked <?php endif; ?> title="禁用"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>禁用</span></div>
+	    </div>
+	  </div>
+		<div class="layui-form-item">
+		<input type="hidden" name='id' value="<?php echo $vo['id']; ?>">
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('user/update?id='.$vo['id']); ?>">立即提交</button>
+		</div>
+	</form>
 </div>
-{js href="__PUBLIC__/static/layui/lay/dest/layui.all.js" /}
+
+</div>
+<script type="text/javascript" src="__PUBLIC__/static/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
     ;!function(){
         var element = layui.element(),layer = layui.layer,$ = layui.jquery,util = layui.util,form = layui.form(); //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -198,6 +241,6 @@
         return path;
     }
 </script>
-{block name="js"}{/block}
+
 </body>
 </html>

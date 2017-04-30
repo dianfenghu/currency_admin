@@ -1,0 +1,1054 @@
+[ 2017-04-28T23:14:30+08:00 ] ::1 ::1 GET /web1/public/
+[ log ] localhost/web1/public/ [运行时间：0.043614s][吞吐率：22.93req/s] [内存消耗：2,464.26kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wamp\www\web1\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-04-28T23:14:36+08:00 ] ::1 ::1 GET /web1/public/index.php/admin
+[ log ] localhost/web1/public/index.php/admin [运行时间：0.060349s][吞吐率：16.57req/s] [内存消耗：3,736.20kb] [文件加载：48]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)[D:\wamp\www\web1\thinkphp\library\think\db\Connection.php:300]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:15:04+08:00 ] ::1 ::1 GET /web1/public/index.php/admin
+[ log ] localhost/web1/public/index.php/admin [运行时间：0.088797s][吞吐率：11.26req/s] [内存消耗：4,141.38kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\wamp\www\web1\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\index\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010812s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001881s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000386s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:15:08+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/group/index.html
+[ log ] localhost/web1/public/index.php/admin/group/index.html [运行时间：0.091881s][吞吐率：10.88req/s] [内存消耗：4,628.91kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->index[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001366s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001091s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.001231s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000537s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_group` [ RunTime:0.002505s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_auth_group` [ RunTime:0.000418s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:15:10+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.038375s][吞吐率：26.06req/s] [内存消耗：1,993.63kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-04-28T23:35:51+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.040907s][吞吐率：24.45req/s] [内存消耗：1,993.66kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-04-28T23:36:49+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.051297s][吞吐率：19.49req/s] [内存消耗：2,143.34kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-04-28T23:36:59+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.088117s][吞吐率：11.35req/s] [内存消耗：4,306.59kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002672s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001715s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000778s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_group` [ RunTime:0.001549s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_auth_group` [ RunTime:0.000322s ]
+[ error ] [0]模板文件不存在:D:\wamp\www\web1\public/../application/admin\view\user\index.html[D:\wamp\www\web1\thinkphp\library\think\view\driver\Think.php:80]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:41:37+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.045370s][吞吐率：22.04req/s] [内存消耗：2,013.10kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:41:42+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.041566s][吞吐率：24.06req/s] [内存消耗：2,013.10kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:42:57+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.040327s][吞吐率：24.80req/s] [内存消耗：2,013.10kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:43:15+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.039151s][吞吐率：25.54req/s] [内存消耗：2,013.10kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:43:22+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.043100s][吞吐率：23.20req/s] [内存消耗：2,013.10kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:43:59+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.040759s][吞吐率：24.53req/s] [内存消耗：2,013.02kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:45:42+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.042609s][吞吐率：23.47req/s] [内存消耗：2,013.02kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:47:11+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.080370s][吞吐率：12.44req/s] [内存消耗：3,800.68kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002198s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001366s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000868s ]
+[ error ] [1]Call to undefined method app\admin\controller\User::all()[D:\wamp\www\web1\application\admin\controller\User.php:31]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:48:00+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.084383s][吞吐率：11.85req/s] [内存消耗：3,800.68kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010419s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001007s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000795s ]
+[ error ] [1]Call to undefined method app\admin\controller\User::all()[D:\wamp\www\web1\application\admin\controller\User.php:31]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:48:10+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.039344s][吞吐率：25.42req/s] [内存消耗：2,013.02kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [64]Cannot declare class app\admin\controller\User because the name is already in use[D:\wamp\www\web1\application\admin\controller\User.php:15]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:48:47+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.083730s][吞吐率：11.94req/s] [内存消耗：4,228.98kb] [文件加载：48]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010825s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001384s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000755s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000723s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000803s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002168s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000543s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:49:16+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.095917s][吞吐率：10.43req/s] [内存消耗：4,294.80kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011003s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001488s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000835s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000622s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000624s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000494s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002350s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000536s ]
+[ error ] [0]模板文件不存在:D:\wamp\www\web1\public/../application/admin\view\user\index.html[D:\wamp\www\web1\thinkphp\library\think\view\driver\Think.php:80]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:50:01+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.103904s][吞吐率：9.62req/s] [内存消耗：4,680.32kb] [文件加载：54]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011103s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001343s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000809s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.001995s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000598s ]
+[ error ] [0]类的属性不存在:app\admin\model\User->title[D:\wamp\www\web1\thinkphp\library\think\Model.php:463]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:51:31+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.079601s][吞吐率：12.56req/s] [内存消耗：4,625.35kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001177s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000909s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000719s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002103s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000403s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:51:53+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.094096s][吞吐率：10.63req/s] [内存消耗：4,625.70kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010783s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001352s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000849s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000470s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002102s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000408s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:54:55+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.088241s][吞吐率：11.33req/s] [内存消耗：4,625.95kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001874s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001281s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000681s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000732s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002411s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000357s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:55:26+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.096581s][吞吐率：10.35req/s] [内存消耗：4,626.42kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010405s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001735s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.002883s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000512s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:57:30+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/group/add.html
+[ log ] localhost/web1/public/index.php/admin/group/add.html [运行时间：0.093797s][吞吐率：10.66req/s] [内存消耗：4,659.94kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/user/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->add[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\add.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011251s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001064s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.001036s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000513s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_rule` [ RunTime:0.001218s ]
+[ sql ] [ SQL ] SELECT `title`,`id` FROM `yzm_auth_rule` [ RunTime:0.000697s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:59:44+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/index.html
+[ log ] localhost/web1/public/index.php/admin/user/index.html [运行时间：0.089800s][吞吐率：11.14req/s] [内存消耗：4,633.91kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/add.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001479s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001232s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000970s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000646s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000479s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.003135s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_user` [ RunTime:0.000590s ]
+
+---------------------------------------------------------------
+[ 2017-04-28T23:59:45+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/user/add.html
+[ log ] localhost/web1/public/index.php/admin/user/add.html [运行时间：0.090550s][吞吐率：11.04req/s] [内存消耗：4,656.92kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/user/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->add[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\add.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011243s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001037s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000421s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_rule` [ RunTime:0.001095s ]
+[ sql ] [ SQL ] SELECT `title`,`id` FROM `yzm_auth_rule` [ RunTime:0.000483s ]
+
+---------------------------------------------------------------

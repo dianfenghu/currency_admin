@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\index\index.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493387481;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>首页</title>
    
-    {load href="__PUBLIC__/static/layui/css/layui.css" /}
-    {load href="__PUBLIC__/static/css/style.css" /}
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
 <div class="my-header">
     <a href="javascript:;">
         <!--<img class="my-header-logo" src="" alt="logo">-->
-        <a href="{:url('admin/index/index')}"><div class="my-header-logo">后台管理系统</div></a>
+        <a href="<?php echo url('admin/index/index'); ?>"><div class="my-header-logo">后台管理系统</div></a>
     </a>
     <!-- <ul class="layui-nav" lay-filter="">
         <li class="layui-nav-item"><a href="javascript:;">列1</a></li>
@@ -42,29 +43,149 @@
 </div>
 <div class="my-side">
     <ul class="layui-nav layui-nav-tree" lay-filter="side">
-        <li class="layui-nav-item"><a href="javascript:;" href-url="{:url('index/wwwset')}">网站设置</a></li>
-        {if($debug == true)}<li class="layui-nav-item"><a href="javascript:;" href-url="{:url('AdminMenu/index')}">后台菜单</a></li>{/if}     
-        {volist name="adminmenu" id="vomenu"}
-            {eq name="vomenu.method" value="x"}
+        <li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url('index/wwwset'); ?>">网站设置</a></li>
+        <?php if(($debug == true)): ?><li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url('AdminMenu/index'); ?>">后台菜单</a></li><?php endif; if(is_array($adminmenu) || $adminmenu instanceof \think\Collection || $adminmenu instanceof \think\Paginator): $i = 0; $__LIST__ = $adminmenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vomenu): $mod = ($i % 2 );++$i;if($vomenu['method'] == 'x'): ?>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">{$vomenu.name}</a>
+                    <a href="javascript:;"><?php echo $vomenu['name']; ?></a>
                     <dl class="layui-nav-child">
-                        {volist name='vomenu.son' id='sonmenu'}
-                        <dd class=""><a href="javascript:;" href-url="{:url($sonmenu['controller'].'/'.$sonmenu['method'])}">{$sonmenu.name}</a></dd>
-                        {/volist}
+                        <?php if(is_array($vomenu['son']) || $vomenu['son'] instanceof \think\Collection || $vomenu['son'] instanceof \think\Paginator): $i = 0; $__LIST__ = $vomenu['son'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$sonmenu): $mod = ($i % 2 );++$i;?>
+                        <dd class=""><a href="javascript:;" href-url="<?php echo url($sonmenu['controller'].'/'.$sonmenu['method']); ?>"><?php echo $sonmenu['name']; ?></a></dd>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                     </dl>
                 </li>
-            {else/}
-                <li class="layui-nav-item"><a href="javascript:;" href-url="{:url($vomenu['controller'].'/'.$vomenu['method'])}">{$vomenu.name}</a></li>
-            {/eq}
-        {/volist}
+            <?php else: ?>
+                <li class="layui-nav-item"><a href="javascript:;" href-url="<?php echo url($vomenu['controller'].'/'.$vomenu['method']); ?>"><?php echo $vomenu['name']; ?></a></li>
+            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
         
     </ul>
 </div>
 <div class="my-body">
-    {block name="main"}主内容{/block}
+    
+<?php 
+    //检测PHP设置参数
+    function show($varName){
+        switch($result = get_cfg_var($varName)){
+            case 0:
+                return '<font color="red">×</font>';
+            break;
+            case 1:
+                return '<font color="green">√</font>';
+            break;
+            default:
+                return $result;
+            break;
+        }
+    }
+ ?>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>服务器配置</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="50">
+            <col width="150">
+            <col width="50">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>服务器域名</td>
+            <td colspan="3"><?php  echo $_SERVER['SERVER_NAME']; ?>
+                (<?php  if('/'==DIRECTORY_SEPARATOR){echo $_SERVER['SERVER_ADDR'];}else{echo @gethostbyname($_SERVER['SERVER_NAME']);}  ?>)
+            </td>
+        </tr>
+        <tr>
+            <td>服务器操作系统</td>
+            <td><?php  $os = explode(" ", php_uname()); echo $os[0]; ?>
+                &nbsp;内核版本：<?php  if('/'==DIRECTORY_SEPARATOR){echo $os[2];}else{echo $os[1];}  ?></td>
+            <td>服务器解译引擎</td>
+            <td><?php  echo $_SERVER['SERVER_SOFTWARE']; ?></td>
+        </tr>
+        <tr>
+            <td>服务器语言</td>
+            <td><?php  echo getenv("HTTP_ACCEPT_LANGUAGE"); ?></td>
+            <td>服务器端口</td>
+            <td><?php  echo $_SERVER['SERVER_PORT']; ?></td>
+        </tr>
+        <tr>
+            <td>服务器主机名</td>
+            <td><?php  if('/'==DIRECTORY_SEPARATOR ){echo $os[1];}else{echo $os[2];}  ?></td>
+            <td>绝对路径</td>
+            <td><?php  echo $_SERVER['DOCUMENT_ROOT']?str_replace('\\','/',$_SERVER['DOCUMENT_ROOT']):str_replace('\\','/',dirname(__FILE__)); ?></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>PHP相关参数</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>PHP版本</td>
+            <td><?php  echo PHP_VERSION; ?></td>
+        </tr>
+        <tr>
+            <td>上传文件最大限制</td>
+            <td><?php  echo show("upload_max_filesize"); ?></td>
+        </tr>
+        <tr>
+            <td>脚本占用最大内存</td>
+            <td><?php  echo show("memory_limit"); ?></td>
+        </tr>
+        <tr>
+            <td>POST提交最大限制</td>
+            <td><?php  echo show("post_max_size"); ?></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>网站配置</legend>
+    </fieldset>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="150">
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>网站标题</td>
+            <td>博客社区</td>
+        </tr>
+        <tr>
+            <td>网站logo</td>
+            <td><img src="/static/image/logo.png" style="width: 135px;height: 37px;"></td>
+        </tr>
+        <tr>
+            <td>keywords</td>
+            <td>Blog,博客，社区，讨论，论坛</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>博客讨论社区</td>
+        </tr>
+        <tr>
+            <td>网站总注册人数</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>网站在线人数</td>
+            <td>50</td>
+        </tr>
+        </tbody>
+    </table>
+
+
 </div>
-{js href="__PUBLIC__/static/layui/lay/dest/layui.all.js" /}
+<script type="text/javascript" src="__PUBLIC__/static/layui/lay/dest/layui.all.js"></script>
 <script type="text/javascript">
     ;!function(){
         var element = layui.element(),layer = layui.layer,$ = layui.jquery,util = layui.util,form = layui.form(); //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -150,9 +271,6 @@
                         url = updatepath(url,'/',3);
                         window.location.href = url;
                     },1000);
-                }else {
-                    alert(res)
-                   // layer.msg('保存失败');
                 }       
             });
             return false;
@@ -198,6 +316,6 @@
         return path;
     }
 </script>
-{block name="js"}{/block}
+
 </body>
 </html>

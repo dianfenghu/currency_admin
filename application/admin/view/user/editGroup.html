@@ -1,0 +1,17 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">分配用户组</a></legend></fieldset>
+<div class="site-text">
+	<form class="layui-form layui-form-pane" action="" method='post'>
+		<div class="layui-form-item">
+			<label class="layui-form-label">用户名</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" required="" lay-verify="required" placeholder="请输入用户名称" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+		  <button class="layui-btn" lay-submit="" lay-filter="formadd" href-url="{:url('user/add')}">立即提交</button>
+		</div>
+	</form>
+</div>
+{/block}
