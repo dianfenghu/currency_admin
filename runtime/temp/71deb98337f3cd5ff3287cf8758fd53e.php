@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\index\index.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493387481;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\index\index.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -271,6 +271,9 @@
                         url = updatepath(url,'/',3);
                         window.location.href = url;
                     },1000);
+                }else {
+                    alert(res)
+                   // layer.msg('保存失败');
                 }       
             });
             return false;

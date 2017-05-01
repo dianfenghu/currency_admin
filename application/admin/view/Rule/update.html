@@ -16,11 +16,15 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">分类（模块名）</label>
-			<div class="layui-input-block">
-				<input type="text" name="type" value="{$vo.type}" required="" value='x' lay-verify="required" placeholder="请输入分类（模块名）" autocomplete="off" class="layui-input layui-form-danger">
-			</div>
-		</div>
+		    <label class="layui-form-label">分类(模块)</label>
+		    <div class="layui-input-inline">
+		      <select name="pid">
+		     	{volist name="rule" id="r"}
+		        	<option value="{$r.id}" class="{$r.id == $vo.pid ? 'selected' : ''}">{$r.title}</option>
+		        {/volist}
+		      </select>
+		    </div>
+  		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">表达式</label>
 			<div class="layui-input-block">

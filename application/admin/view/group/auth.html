@@ -1,0 +1,45 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">分类</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="{:url('admin/group/add')}">
+  <i class="layui-icon">&#xe608;</i> 添加用户组
+</button>
+<hr>
+
+<div class="layui-form">
+<form class="layui-form layui-form-pane" action="" method="post">
+  <table class="layui-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+        <th colspan="10" text-align="center">权限管理</th>
+      </tr> 
+    </thead>
+    <tbody>
+    {volist name="auth" id="auth"}
+      <tr>
+        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary">{$auth.title}</td>
+        <td class="rows">
+        	{volist name="auth['zi']" id="zi"}
+        	<input type="checkbox"  name="group_rules[]" {in name="zi['id']" value="$rules.rules"} checked {/in}  lay-skin="primary">{$zi.title}
+        	{/volist}
+        </td>
+      </tr>
+    {/volist}
+    <tr>
+		<td colspan="2" align="center">
+			<input type="hidden" name="id" value="{$rules.id}">
+			<button class="layui-btn layui-btn-normal layui-btn-radius" lay-submit="" lay-filter="formupdate" href-url="{:url('group/auth')}">保存</button>
+			<button class="layui-btn layui-btn-danger layui-btn-radius">取消</button>
+		</td>
+    </tr>
+    </tbody>
+  </table>
+ </form>
+</div>
+{/block}
+{block name="js"}
+
+{/block}

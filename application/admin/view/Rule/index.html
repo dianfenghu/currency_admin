@@ -36,6 +36,7 @@
 		<td>{$vo.status?'激活':'禁用'}</td>
 		<td>			
 			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/rule/add?id='.$vo['id'])}">添加子权限</button>
 				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/rule/update?id='.$vo['id'])}">编辑</button>
 				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/rule/delete?id='.$vo['id'])}">删除</button>{/if}
 			</div>
