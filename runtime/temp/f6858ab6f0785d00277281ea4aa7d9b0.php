@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\wamp\www\web1\public/../application/admin\view\rule\add.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\wamp\www\web1\public/../application/admin\view\rule\add.html";i:1493524947;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,6 +88,7 @@
 				<input type="text" name="condition" required="" lay-verify="" placeholder="请输入权限规则表达式，为空表示存在就验证，不为空表示按照条件验证" autocomplete="off" class="layui-input layui-form-danger">
 			</div>
 		</div>
+		<input type="hidden" name="pid" value="<?php echo !empty($_GET['id'])?$_GET['id'] : 0 ;; ?>">
 		<div class="layui-form-item">
 	        <label class="layui-form-label">状态开关</label>
 	        <div class="layui-input-block">

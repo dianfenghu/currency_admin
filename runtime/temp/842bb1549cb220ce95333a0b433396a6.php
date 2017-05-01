@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\wamp\www\web1\public/../application/admin\view\group\auth.html";i:1493617502;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -61,32 +62,43 @@
 </div>
 <div class="my-body">
     
-<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑用户组|<?php echo $vo['title']; ?></a></legend></fieldset>
-<div class="site-text">
-	<form class="layui-form layui-form-pane" action="" method='POST'>
-		<div class="layui-form-item">
-			<label class="layui-form-label">用户组名称</label>
-			<div class="layui-input-block">
-				<input type="text" name="title" required="" value="" lay-verify="required" placeholder="请输入用户组名称" autocomplete="off" class="layui-input layui-form-danger">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">规则ID</label>
-			<div class="layui-input-block">
-				<input type="text" name="rules" value="" required="" lay-verify="required" placeholder="请输入规则ID','相隔" autocomplete="off" class="layui-input layui-form-danger">
-			</div>
-		</div>
-		<div class="layui-form-item">
-	        <label class="layui-form-label">状态</label>
-	        <div class="layui-input-block">
-	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="激活|隐藏">
-	        </div>
-	    </div>
-		<div class="layui-form-item">
-		<input type="hidden" name='id' value="<?php echo $vo['id']; ?>">
-		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('group/update?id='.$vo['id']); ?>">立即提交</button>
-		</div>
-	</form>
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">分类</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="<?php echo url('admin/group/add'); ?>">
+  <i class="layui-icon">&#xe608;</i> 添加用户组
+</button>
+<hr>
+
+<div class="layui-form">
+<form class="layui-form layui-form-pane" action="" method="post">
+  <table class="layui-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
+        <th colspan="10" text-align="center">权限管理</th>
+      </tr> 
+    </thead>
+    <tbody>
+    <?php if(is_array($auth) || $auth instanceof \think\Collection || $auth instanceof \think\Paginator): $i = 0; $__LIST__ = $auth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$auth): $mod = ($i % 2 );++$i;?>
+      <tr>
+        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary"><?php echo $auth['title']; ?></td>
+        <td class="rows">
+        	<?php if(is_array($auth['zi']) || $auth['zi'] instanceof \think\Collection || $auth['zi'] instanceof \think\Paginator): $i = 0; $__LIST__ = $auth['zi'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$zi): $mod = ($i % 2 );++$i;?>
+        	<input type="checkbox"  name="group_rules[]" <?php if(in_array(($zi['id']), is_array($rules['rules'])?$rules['rules']:explode(',',$rules['rules']))): ?> checked <?php endif; ?>  lay-skin="primary"><?php echo $zi['title']; endforeach; endif; else: echo "" ;endif; ?>
+        </td>
+      </tr>
+    <?php endforeach; endif; else: echo "" ;endif; ?>
+    <tr>
+		<td colspan="2" align="center">
+			<input type="hidden" name="id" value="<?php echo $rules['id']; ?>">
+			<button class="layui-btn layui-btn-normal layui-btn-radius" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('group/auth'); ?>">保存</button>
+			<button class="layui-btn layui-btn-danger layui-btn-radius">取消</button>
+		</td>
+    </tr>
+    </tbody>
+  </table>
+ </form>
 </div>
 
 </div>
@@ -224,6 +236,8 @@
         return path;
     }
 </script>
+
+
 
 </body>
 </html>

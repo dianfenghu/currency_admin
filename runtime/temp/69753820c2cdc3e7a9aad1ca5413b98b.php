@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\index\wwwset.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -61,33 +62,51 @@
 </div>
 <div class="my-body">
     
-<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑用户组|<?php echo $vo['title']; ?></a></legend></fieldset>
-<div class="site-text">
-	<form class="layui-form layui-form-pane" action="" method='POST'>
-		<div class="layui-form-item">
-			<label class="layui-form-label">用户组名称</label>
-			<div class="layui-input-block">
-				<input type="text" name="title" required="" value="" lay-verify="required" placeholder="请输入用户组名称" autocomplete="off" class="layui-input layui-form-danger">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">规则ID</label>
-			<div class="layui-input-block">
-				<input type="text" name="rules" value="" required="" lay-verify="required" placeholder="请输入规则ID','相隔" autocomplete="off" class="layui-input layui-form-danger">
-			</div>
-		</div>
-		<div class="layui-form-item">
-	        <label class="layui-form-label">状态</label>
-	        <div class="layui-input-block">
-	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="激活|隐藏">
-	        </div>
-	    </div>
-		<div class="layui-form-item">
-		<input type="hidden" name='id' value="<?php echo $vo['id']; ?>">
-		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('group/update?id='.$vo['id']); ?>">立即提交</button>
-		</div>
-	</form>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>网站设置</legend>
+    </fieldset>
+    <div class="layui-tab">
+    <ul class="layui-tab-title">
+        <li class="layui-this">网站开关</li>
+        <li class="">其他</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <form class="layui-form layui-form-pane" action="" method="POST">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">网站开关</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="on_off" <?php if(!empty($on_off)) echo 'checked'; ?> lay-skin="switch" lay-text="开启|关闭">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">闭站公告</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="offstr" lay-verify="title" value="<?php echo config('wwwset.offstr'); ?>" autocomplete="off" placeholder="请输入关闭网站公告" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit="" lay-filter="wwwset">保存配置</button>
+                </div>
+            </form>
+        </div>
+        <div class="layui-tab-item">内容2</div>
+        <div class="layui-tab-item ">内容3</div>
+        <div class="layui-tab-item">内容4</div>
+        <div class="layui-tab-item">内容5</div>
+    </div>
 </div>
+
+<script type="text/javascript">
+    ;!function(){
+        var form = layui.form();
+        //监听提交
+        form.on('submit(wwwset)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    }();
+</script>
 
 </div>
 <script type="text/javascript" src="__PUBLIC__/static/layui/lay/dest/layui.all.js"></script>

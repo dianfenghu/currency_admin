@@ -31,7 +31,7 @@
 		<td>			
 			<div class="layui-btn-group ">
 				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/group/update?id='.$vo['id'])}">编辑</button>
-				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/group/fenpei?id='.$vo['id'])}">分配权限</button>
+				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/group/auth?id='.$vo['id'])}">分配权限</button>
 				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/group/delete?id='.$vo['id'])}">删除</button>{/if}
 			</div>
 		</td>

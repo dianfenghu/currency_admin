@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\rule\update.html";i:1493525618;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,30 +61,46 @@
 </div>
 <div class="my-body">
     
-<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑用户组|<?php echo $vo['title']; ?></a></legend></fieldset>
+<fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑权限规则|<?php echo $vo['title']; ?></a></legend></fieldset>
 <div class="site-text">
 	<form class="layui-form layui-form-pane" action="" method='POST'>
 		<div class="layui-form-item">
-			<label class="layui-form-label">用户组名称</label>
+			<label class="layui-form-label">唯一标识</label>
 			<div class="layui-input-block">
-				<input type="text" name="title" required="" value="" lay-verify="required" placeholder="请输入用户组名称" autocomplete="off" class="layui-input layui-form-danger">
+				<input type="text" name="name" value="<?php echo $vo['name']; ?>" required="" lay-verify="required" placeholder="请输入权限规则唯一标识" autocomplete="off" class="layui-input layui-form-danger">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">规则ID</label>
+			<label class="layui-form-label">名称</label>
 			<div class="layui-input-block">
-				<input type="text" name="rules" value="" required="" lay-verify="required" placeholder="请输入规则ID','相隔" autocomplete="off" class="layui-input layui-form-danger">
+				<input type="text" name="title" value="<?php echo $vo['title']; ?>" required="" lay-verify="required" placeholder="请输入权限规则名称" autocomplete="off" class="layui-input layui-form-danger">
 			</div>
 		</div>
 		<div class="layui-form-item">
-	        <label class="layui-form-label">状态</label>
+		    <label class="layui-form-label">分类(模块)</label>
+		    <div class="layui-input-inline">
+		      <select name="pid">
+		     	<?php if(is_array($rule) || $rule instanceof \think\Collection || $rule instanceof \think\Paginator): $i = 0; $__LIST__ = $rule;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?>
+		        	<option value="<?php echo $r['id']; ?>" class="<?php echo !empty($r['id']) && $r['id']==$vo['pid']?'selected' : ''; ?>"><?php echo $r['title']; ?></option>
+		        <?php endforeach; endif; else: echo "" ;endif; ?>
+		      </select>
+		    </div>
+  		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">表达式</label>
+			<div class="layui-input-block">
+				<input type="text" name="condition" value="<?php echo $vo['condition']; ?>" required="" value='x' lay-verify="" placeholder="请输入权限规则表达式，为空表示存在就验证，不为空表示按照条件验证" autocomplete="off" class="layui-input layui-form-danger">
+			</div>
+		</div>
+		<div class="layui-form-item">
+	        <label class="layui-form-label">状态开关</label>
 	        <div class="layui-input-block">
 	            <input type="checkbox" name="status" checked lay-skin="switch" lay-text="激活|隐藏">
 	        </div>
 	    </div>
 		<div class="layui-form-item">
 		<input type="hidden" name='id' value="<?php echo $vo['id']; ?>">
-		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('group/update?id='.$vo['id']); ?>">立即提交</button>
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="<?php echo url('rule/update?id='.$vo['id']); ?>">立即提交</button>
 		</div>
 	</form>
 </div>

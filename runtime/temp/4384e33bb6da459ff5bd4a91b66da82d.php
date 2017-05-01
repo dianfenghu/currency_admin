@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\wamp\www\web1\public/../application/admin\view\rule\index.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\wamp\www\web1\public/../application/admin\view\rule\index.html";i:1493523809;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -97,6 +98,7 @@
 		<td><?php echo !empty($vo['status'])?'激活':'禁用'; ?></td>
 		<td>			
 			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/rule/add?id='.$vo['id']); ?>">添加子权限</button>
 				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/rule/update?id='.$vo['id']); ?>">编辑</button>
 				<?php if(($debug == true)): ?><button class="layui-btn layui-btn-mini del" href-url="<?php echo url('admin/rule/delete?id='.$vo['id']); ?>">删除</button><?php endif; ?>
 			</div>

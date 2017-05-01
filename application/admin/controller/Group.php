@@ -85,8 +85,24 @@ class Group extends Adminbase
         
     } 
 
-    public function  fenpei() {
+    public function auth() {
+        if(!request()->isPost()) {
+            $grouprules = db('auth_group')->where('id',input('id'))->find();
+            $this->assign('rules',$grouprules);
+            $this->assign('auth',$this->menuList());
+        }
+
         return $this->fetch();
+    }
+
+    protected static function menuList($pid=0) {
+        $data = db('auth_rule')->where('pid',$pid)->select();
+        if($data) {
+            foreach($data as $k=>$v) {
+                $data[$k]['zi'] = self::menuList($v['id']);
+            }
+        }
+        return $data;
     }     
 }
 

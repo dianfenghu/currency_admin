@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\group\index.html";i:1493449988;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\group\index.html";i:1493520696;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -92,7 +93,7 @@
 		<td>			
 			<div class="layui-btn-group ">
 				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/group/update?id='.$vo['id']); ?>">编辑</button>
-				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/group/fenpei?id='.$vo['id']); ?>">分配权限</button>
+				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/group/auth?id='.$vo['id']); ?>">分配权限</button>
 				<?php if(($debug == true)): ?><button class="layui-btn layui-btn-mini del" href-url="<?php echo url('admin/group/delete?id='.$vo['id']); ?>">删除</button><?php endif; ?>
 			</div>
 		</td>

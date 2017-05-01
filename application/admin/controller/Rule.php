@@ -71,6 +71,8 @@ class Rule extends Adminbase
             }
             $db = db('auth_rule');
             $data = $db -> find($id);
+            $rule = db('auth_rule')->where('pid',0)->select();
+            $this ->assign('rule',$rule);
             $this -> view -> vo = $data;
             return view();
         }
