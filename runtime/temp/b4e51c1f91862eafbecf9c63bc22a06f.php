@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\wamp\www\web1\public/../application/admin\view\user\add.html";i:1493451185;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493387481;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\wamp\www\web1\public/../application/admin\view\user\add.html";i:1493455204;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -86,7 +87,6 @@
     <label class="layui-form-label">用户组</label>
     <div class="layui-input-inline">
       <select name="group_id">
-        <option value="">普通</option>
         <?php if(is_array($userGroup) || $userGroup instanceof \think\Collection || $userGroup instanceof \think\Paginator): $i = 0; $__LIST__ = $userGroup;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$group): $mod = ($i % 2 );++$i;?>
         <option value="<?php echo $group['id']; ?>"><?php echo $group['title']; ?></option>
         <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -193,6 +193,9 @@
                         url = updatepath(url,'/',3);
                         window.location.href = url;
                     },1000);
+                }else {
+                    alert(res)
+                   // layer.msg('保存失败');
                 }       
             });
             return false;

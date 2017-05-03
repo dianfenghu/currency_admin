@@ -86,13 +86,10 @@ class Group extends Adminbase
     } 
 
     public function auth() {
-        if(!request()->isPost()) {
             $grouprules = db('auth_group')->where('id',input('id'))->find();
-            $this->assign('rules',$grouprules);
-            $this->assign('auth',$this->menuList());
-        }
-
-        return $this->fetch();
+            $data['rules'] = $grouprules;
+            $data['auth'] = $grouprules;
+            echo json_encode($data);
     }
 
     protected static function menuList($pid=0) {

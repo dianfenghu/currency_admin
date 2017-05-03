@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493455912;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493707340;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +10,7 @@
    
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/css.css" />
     <link rel="icon" href="/static/image/code.png">
 </head>
 <body>
@@ -171,11 +172,12 @@
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
                 if(res){
-                    layer.msg('保存成功');
-                    setTimeout(function(){
-                        url = updatepath(url,'/',3);
-                        window.location.href = url;
-                    },1000);
+                    console.log(res);
+                    // layer.msg('保存成功');
+                    // setTimeout(function(){
+                    //     url = updatepath(url,'/',3);
+                    //     window.location.href = url;
+                    // },1000);
                 }else {
                     alert(res)
                    // layer.msg('保存失败');

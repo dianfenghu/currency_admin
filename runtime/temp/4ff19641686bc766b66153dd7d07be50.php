@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\index\wwwset.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493816432;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\wamp\www\web1\public/../application/admin\view\content\index.html";i:1493390374;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493816432;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,51 +62,45 @@
 </div>
 <div class="my-body">
     
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-        <legend>网站设置</legend>
-    </fieldset>
-    <div class="layui-tab">
-    <ul class="layui-tab-title">
-        <li class="layui-this">网站开关</li>
-        <li class="">其他</li>
-    </ul>
-    <div class="layui-tab-content">
-        <div class="layui-tab-item layui-show">
-            <form class="layui-form layui-form-pane" action="" method="POST">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">网站开关</label>
-                    <div class="layui-input-block">
-                        <input type="checkbox" name="on_off" <?php if(!empty($on_off)) echo 'checked'; ?> lay-skin="switch" lay-text="开启|关闭">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">闭站公告</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="offstr" lay-verify="title" value="<?php echo config('wwwset.offstr'); ?>" autocomplete="off" placeholder="请输入关闭网站公告" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <button class="layui-btn" lay-submit="" lay-filter="wwwset">保存配置</button>
-                </div>
-            </form>
-        </div>
-        <div class="layui-tab-item">内容2</div>
-        <div class="layui-tab-item ">内容3</div>
-        <div class="layui-tab-item">内容4</div>
-        <div class="layui-tab-item">内容5</div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    ;!function(){
-        var form = layui.form();
-        //监听提交
-        form.on('submit(wwwset)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
-    }();
-</script>
+<fieldset class="layui-elem-field layui-field-title site-title">
+    <legend><a name="nob">内容</a></legend>
+</fieldset>
+<button class="layui-btn add" href-url="<?php echo url('content/add'); ?>">
+  <i class="layui-icon">&#xe608;</i> 添加内容
+</button>
+<hr>
+<table class="layui-table" lay-even="" lay-skin="nob">
+	<colgroup>
+		<col width="150">
+		<col width="200">
+		<col>
+	</colgroup>
+	<thead>
+	<tr >
+		<th>ID</th>
+		<th>标题</th>
+		<th>添加时间</th>
+		<th>状态</th>
+		<th>操作</th>
+	</tr> 
+	</thead>
+	<tbody>
+	<?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+	<tr title="<?php echo $vo['describe']; ?>">
+		<td><?php echo $vo['id']; ?></td>
+		<td><?php echo $vo['title']; ?></td>
+		<td><?php echo !empty($vo['status'])?'on':'off'; ?></td>
+		<td>			
+			<div class="layui-btn-group ">
+				<button class="layui-btn layui-btn-mini add" href-url="<?php echo url('admin/content/add?pid='.$vo['id']); ?>">增加子分类</button>		
+				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/content/update?id='.$vo['id']); ?>">编辑</button>
+				<?php if(($debug == true)): ?><button class="layui-btn layui-btn-mini del" href-url="<?php echo url('admin/content/delete?id='.$vo['id']); ?>">删除</button><?php endif; ?>
+			</div>
+		</td>
+	</tr>
+	<?php endforeach; endif; else: echo "" ;endif; ?>
+	</tbody>
+</table>
 
 </div>
 <script type="text/javascript" src="__PUBLIC__/static/layui/lay/dest/layui.all.js"></script>
@@ -253,6 +247,8 @@
         return path;
     }
 </script>
+
+
 
 </body>
 </html>
