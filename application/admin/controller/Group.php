@@ -86,10 +86,23 @@ class Group extends Adminbase
     } 
 
     public function auth() {
-            $grouprules = db('auth_group')->where('id',input('id'))->find();
-            $data['rules'] = $grouprules;
-            $data['auth'] = $grouprules;
-            echo json_encode($data);
+            $userRules = db('auth_group')->where('id',input('id'))->field('rules')->find();
+            $userRules = explode(',',$userRules['rules']);
+            $rules = $this->menuList();
+            foreach($rules as &$v) {
+                if(in_array($v['id'],$userRules)) {
+                    $v['checkbox'] = 'checked';
+                }
+
+                foreach($v['zi'] as &$z) {
+                    if(in_array($z['id'],$userRules)) {
+                        $z['checkbox'] = 'checked';
+                    }
+                }
+            }
+
+
+            echo json_encode($rules);
     }
 
     protected static function menuList($pid=0) {

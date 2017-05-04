@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493707340;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\wamp\www\web1\public/../application/admin\view\group\update.html";i:1493523437;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493820428;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -215,6 +215,17 @@
                
             });
         });
+
+        //权限分配
+        $(".layui-form-checkbox").on('click',function(){
+            if($(this).prev('input').attr('checked')){
+                $(this).prev('input').attr('checked',false)
+            }else{
+                $(this).prev('input').attr('checked',true)
+            }
+        })
+
+
     }();
 
     function updatepath(str,f,n){

@@ -45,10 +45,19 @@
 <script type="text/javascript">
 function fun(id){
     $.post("{:url('group/auth')}",{id:id},function(data){
+    	console.log(data);
+    	var str=''
+    	str +='<div class="layui-form"><table class="layui-table"><thead><tr><th><input name="" lay-skin="primary" lay-filter="allChoose" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">口</i></div></th><th colspan="4">权限分配</th></tr></thead><tbody>'
+    	for(var i in data){
+    		console.log(data[i]);
+    		str +='<tr><td><input name="" lay-skin="primary" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td></td><td>汉族</td><td>1989-10-14</td><td>人生似修行</td></tr>'
+    	}
+    	
+    	str +='</tbody></table></div>'
 		layer.open({
 		  title:'权限分配',
 		  area: ['60%', '60%']
-		  ,content: '<div class="layui-form"><table class="layui-table"><thead><tr><th><input name="" lay-skin="primary" lay-filter="allChoose" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">口</i></div></th><th colspan="4">权限分配</th></tr></thead><tbody><tr><td><input name="" lay-skin="primary" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td>贤心</td><td>汉族</td><td>1989-10-14</td><td>人生似修行</td></tr></tbody></table></div>'
+		  ,content: str
 		}); 
 	})
 }
