@@ -20,10 +20,10 @@
     <tbody>
     {volist name="auth" id="auth"}
       <tr>
-        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary">{$auth.title}</td>
+        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary" value="{$auth.id}">{$auth.title}</td>
         <td class="rows">
         	{volist name="auth['zi']" id="zi"}
-        	<input type="checkbox"  name="group_rules[]" {in name="zi['id']" value="$rules.rules"} checked {/in}  lay-skin="primary">{$zi.title}
+        	<input type="checkbox"  name="group_rules[]"  lay-skin="primary">1111
         	{/volist}
         </td>
       </tr>
@@ -38,7 +38,7 @@
     </tbody>
   </table>
  </form>
-</div>
+</div>    
 {/block}
 {block name="js"}
 

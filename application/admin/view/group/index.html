@@ -31,7 +31,7 @@
 		<td>			
 			<div class="layui-btn-group ">
 				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/group/update?id='.$vo['id'])}">编辑</button>
-				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/group/auth?id='.$vo['id'])}">分配权限</button>
+				<button class="layui-btn layui-btn-mini update auth" href-url="javascript:;" onClick="fun({$vo.id})">分配权限</button>
 				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/group/delete?id='.$vo['id'])}">删除</button>{/if}
 			</div>
 		</td>
@@ -41,5 +41,28 @@
 </table>
 {/block}
 {block name="js"}
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+function fun(id){
+    $.post("{:url('group/auth')}",{id:id},function(data){
+    	console.log(data);
+    	var str=''
+    	str +='<div class="layui-form"><table class="layui-table"><thead><tr><th><input name="" lay-skin="primary" lay-filter="allChoose" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">口</i></div></th><th colspan="4">权限分配</th></tr></thead><tbody>'
+    	for(var i in data){
+    		console.log(data[i]);
+    		str +='<tr><td><input name="" lay-skin="primary" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td></td><td>汉族</td><td>1989-10-14</td><td>人生似修行</td></tr>'
+    	}
+    	
+    	str +='</tbody></table></div>'
+		layer.open({
+		  title:'权限分配',
+		  area: ['60%', '60%']
+		  ,content: str
+		}); 
+	})
+}
+	
 
+
+</script>
 {/block}

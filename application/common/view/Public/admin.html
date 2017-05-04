@@ -146,11 +146,12 @@
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
                 if(res){
-                    layer.msg('保存成功');
-                    setTimeout(function(){
-                        url = updatepath(url,'/',3);
-                        window.location.href = url;
-                    },1000);
+                    console.log(res);
+                    // layer.msg('保存成功');
+                    // setTimeout(function(){
+                    //     url = updatepath(url,'/',3);
+                    //     window.location.href = url;
+                    // },1000);
                 }else {
                     alert(res)
                    // layer.msg('保存失败');
@@ -188,6 +189,17 @@
                
             });
         });
+
+        //权限分配
+        $(".layui-form-checkbox").on('click',function(){
+            if($(this).prev('input').attr('checked')){
+                $(this).prev('input').attr('checked',false)
+            }else{
+                $(this).prev('input').attr('checked',true)
+            }
+        })
+
+
     }();
 
     function updatepath(str,f,n){

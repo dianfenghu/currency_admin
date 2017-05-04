@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\group\index.html";i:1493520696;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\wamp\www\web1\public/../application/admin\view\group\index.html";i:1493871434;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493820428;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +93,7 @@
 		<td>			
 			<div class="layui-btn-group ">
 				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/group/update?id='.$vo['id']); ?>">编辑</button>
-				<button class="layui-btn layui-btn-mini update" href-url="<?php echo url('admin/group/auth?id='.$vo['id']); ?>">分配权限</button>
+				<button class="layui-btn layui-btn-mini update auth" href-url="javascript:;" onClick="fun(<?php echo $vo['id']; ?>)">分配权限</button>
 				<?php if(($debug == true)): ?><button class="layui-btn layui-btn-mini del" href-url="<?php echo url('admin/group/delete?id='.$vo['id']); ?>">删除</button><?php endif; ?>
 			</div>
 		</td>
@@ -184,11 +184,12 @@
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
                 if(res){
-                    layer.msg('保存成功');
-                    setTimeout(function(){
-                        url = updatepath(url,'/',3);
-                        window.location.href = url;
-                    },1000);
+                    console.log(res);
+                    // layer.msg('保存成功');
+                    // setTimeout(function(){
+                    //     url = updatepath(url,'/',3);
+                    //     window.location.href = url;
+                    // },1000);
                 }else {
                     alert(res)
                    // layer.msg('保存失败');
@@ -226,6 +227,17 @@
                
             });
         });
+
+        //权限分配
+        $(".layui-form-checkbox").on('click',function(){
+            if($(this).prev('input').attr('checked')){
+                $(this).prev('input').attr('checked',false)
+            }else{
+                $(this).prev('input').attr('checked',true)
+            }
+        })
+
+
     }();
 
     function updatepath(str,f,n){
@@ -238,7 +250,30 @@
     }
 </script>
 
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+function fun(id){
+    $.post("<?php echo url('group/auth'); ?>",{id:id},function(data){
+    	console.log(data);
+    	var str=''
+    	str +='<div class="layui-form"><table class="layui-table"><thead><tr><th><input name="" lay-skin="primary" lay-filter="allChoose" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon">口</i></div></th><th colspan="4">权限分配</th></tr></thead><tbody>'
+    	for(var i in data){
+    		console.log(data[i]);
+    		str +='<tr><td><input name="" lay-skin="primary" type="checkbox"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i class="layui-icon"></i></div></td><td></td><td>汉族</td><td>1989-10-14</td><td>人生似修行</td></tr>'
+    	}
+    	
+    	str +='</tbody></table></div>'
+		layer.open({
+		  title:'权限分配',
+		  area: ['60%', '60%']
+		  ,content: str
+		}); 
+	})
+}
+	
 
+
+</script>
 
 </body>
 </html>

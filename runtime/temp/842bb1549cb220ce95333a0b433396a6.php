@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\wamp\www\web1\public/../application/admin\view\group\auth.html";i:1493617502;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493614579;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:65:"D:\wamp\www\web1\public/../application/admin\view\group\auth.html";i:1493816731;s:68:"D:\wamp\www\web1\public/../application/common\view\Public\admin.html";i:1493816432;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,10 +82,10 @@
     <tbody>
     <?php if(is_array($auth) || $auth instanceof \think\Collection || $auth instanceof \think\Paginator): $i = 0; $__LIST__ = $auth;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$auth): $mod = ($i % 2 );++$i;?>
       <tr>
-        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary"><?php echo $auth['title']; ?></td>
+        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary" value="<?php echo $auth['id']; ?>"><?php echo $auth['title']; ?></td>
         <td class="rows">
         	<?php if(is_array($auth['zi']) || $auth['zi'] instanceof \think\Collection || $auth['zi'] instanceof \think\Paginator): $i = 0; $__LIST__ = $auth['zi'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$zi): $mod = ($i % 2 );++$i;?>
-        	<input type="checkbox"  name="group_rules[]" <?php if(in_array(($zi['id']), is_array($rules['rules'])?$rules['rules']:explode(',',$rules['rules']))): ?> checked <?php endif; ?>  lay-skin="primary"><?php echo $zi['title']; endforeach; endif; else: echo "" ;endif; ?>
+        	<input type="checkbox"  name="group_rules[]" <?php if(in_array(($zi['id']), is_array($rules['rules'])?$rules['rules']:explode(',',$rules['rules']))): ?> checked <?php endif; ?> value="<?php echo $zi['id']; ?>"  lay-skin="primary"><?php echo $zi['title']; endforeach; endif; else: echo "" ;endif; ?>
         </td>
       </tr>
     <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -183,11 +183,12 @@
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
                 if(res){
-                    layer.msg('保存成功');
-                    setTimeout(function(){
-                        url = updatepath(url,'/',3);
-                        window.location.href = url;
-                    },1000);
+                    console.log(res);
+                    // layer.msg('保存成功');
+                    // setTimeout(function(){
+                    //     url = updatepath(url,'/',3);
+                    //     window.location.href = url;
+                    // },1000);
                 }else {
                     alert(res)
                    // layer.msg('保存失败');
@@ -225,6 +226,15 @@
                
             });
         });
+
+        //权限分配
+        $(".layui-form-checkbox").on('click',function(){
+            if($(this).prev('input').attr('checked')){
+                $(this).prev('input').attr('checked',false)
+            }else{
+                $(this).prev('input').attr('checked',true)
+            }
+        })
     }();
 
     function updatepath(str,f,n){

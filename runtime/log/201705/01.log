@@ -25563,3 +25563,553 @@
 [ sql ] [ SQL ] SELECT * FROM `yzm_auth_rule` WHERE  `pid` = 16 [ RunTime:0.000869s ]
 
 ---------------------------------------------------------------
+[ 2017-05-01T15:12:07+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth.html
+[ log ] localhost/web1/public/index.php/admin/group/auth.html [运行时间：0.064035s][吞吐率：15.62req/s] [内存消耗：3,883.73kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '25',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010217s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001098s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000441s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000542s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:12:07+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth.html
+[ log ] localhost/web1/public/index.php/admin/group/auth.html [运行时间：0.060828s][吞吐率：16.44req/s] [内存消耗：3,883.73kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '25',
+  'accept' => '*/*',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010148s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001590s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000460s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000447s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000535s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000466s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:12:07+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth/id/1.html
+[ log ] localhost/web1/public/index.php/admin/group/auth/id/1.html [运行时间：0.069623s][吞吐率：14.36req/s] [内存消耗：3,932.74kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '67',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+    1 => 'on',
+    2 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009790s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001943s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000564s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000481s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:13:09+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth/id/1.html
+[ log ] localhost/web1/public/index.php/admin/group/auth/id/1.html [运行时间：0.067866s][吞吐率：14.73req/s] [内存消耗：3,932.74kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '67',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+    1 => 'on',
+    2 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011185s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000452s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000386s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:13:54+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth/id/1.html
+[ log ] localhost/web1/public/index.php/admin/group/auth/id/1.html [运行时间：0.068636s][吞吐率：14.57req/s] [内存消耗：3,932.74kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '67',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+    1 => 'on',
+    2 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010061s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000805s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000506s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000496s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:15:12+08:00 ] ::1 ::1 GET /web1/public/index.php/admin/index/index.html
+[ log ] localhost/web1/public/index.php/admin/index/index.html [运行时间：0.081718s][吞吐率：12.24req/s] [内存消耗：4,142.12kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\wamp\www\web1\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\index\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010953s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000986s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000641s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000567s ]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:15:57+08:00 ] 127.0.0.1 127.0.0.1 GET /web1/public/index.php/admin/group/add.html
+[ log ] 127.0.0.1/web1/public/index.php/admin/group/add.html [运行时间：0.051915s][吞吐率：19.26req/s] [内存消耗：4,124.63kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->add[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\add.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001798s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000783s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000336s ]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:16:01+08:00 ] 127.0.0.1 127.0.0.1 GET /web1/public/index.php/admin/rule/index.html
+[ log ] 127.0.0.1/web1/public/index.php/admin/rule/index.html [运行时间：0.082732s][吞吐率：12.09req/s] [内存消耗：4,422.48kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'rule',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/web1/public/index.php/admin/group/add.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Rule->index[ D:\wamp\www\web1\application\admin\controller\Rule.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\rule\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010443s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000876s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000560s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000766s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000926s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_rule` [ RunTime:0.001083s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_auth_rule` [ RunTime:0.000660s ]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:16:04+08:00 ] 127.0.0.1 127.0.0.1 GET /web1/public/index.php/admin/user/index.html
+[ log ] 127.0.0.1/web1/public/index.php/admin/user/index.html [运行时间：0.077158s][吞吐率：12.96req/s] [内存消耗：4,176.74kb] [文件加载：50]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/web1/public/index.php/admin/rule/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\index.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009760s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001360s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000406s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009690s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_user` [ RunTime:0.003610s ]
+[ sql ] [ SQL ] SELECT `u`.*,`g`.`title` FROM `yzm_user` `u` INNER JOIN `yzm_auth_group_access` `a` ON `u`.`id`=`a`.`uid` INNER JOIN `yzm_auth_group` `g` ON `a`.`group_id`=`g`.`id` [ RunTime:0.000658s ]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:16:06+08:00 ] 127.0.0.1 127.0.0.1 GET /web1/public/index.php/admin/user/add.html
+[ log ] 127.0.0.1/web1/public/index.php/admin/user/add.html [运行时间：0.076258s][吞吐率：13.11req/s] [内存消耗：4,199.38kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/web1/public/index.php/admin/user/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->add[ D:\wamp\www\web1\application\admin\controller\User.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\user\add.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+  2 => 'userGroup',
+  3 => 0,
+  4 => 1,
+  5 => 2,
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011466s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.000825s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000777s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.001063s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000594s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010683s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_auth_group` [ RunTime:0.000867s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_auth_group` WHERE  `status` = 1 [ RunTime:0.000633s ]
+
+---------------------------------------------------------------
+[ 2017-05-01T15:27:48+08:00 ] ::1 ::1 POST /web1/public/index.php/admin/group/auth/id/1.html
+[ log ] localhost/web1/public/index.php/admin/group/auth/id/1.html [运行时间：0.062109s][吞吐率：16.10req/s] [内存消耗：3,932.74kb] [文件加载：52]
+[ info ] [ LANG ] D:\wamp\www\web1\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'group',
+    2 => 'auth',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '67',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://localhost',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'referer' => 'http://localhost/web1/public/index.php/admin/group/auth/id/1.html',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0; thinkphp_show_page_trace=0|0',
+)
+[ info ] [ PARAM ] array (
+  'group_rules' => 
+  array (
+    0 => 'on',
+    1 => 'on',
+    2 => 'on',
+  ),
+  'id' => '1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Group->auth[ D:\wamp\www\web1\application\admin\controller\Group.php ]
+[ info ] [ VIEW ] D:\wamp\www\web1\public/../application/admin\view\group\auth.html [ array (
+  0 => 'debug',
+  1 => 'adminmenu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001543s ] mysql:dbname=new;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yzm_admin_menu` [ RunTime:0.001013s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 0 [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 103 [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 104 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 109 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 110 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 111 [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT * FROM `yzm_admin_menu` WHERE  `pid` = 112 [ RunTime:0.000841s ]
+[ error ] [8]未定义变量: auth[D:\wamp\www\web1\runtime\temp\842bb1549cb220ce95333a0b433396a6.php:83]
+
+---------------------------------------------------------------
