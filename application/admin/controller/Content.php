@@ -49,7 +49,7 @@ class Content extends Adminbase
         if(!$this -> request -> isPost()){
             $db = \think\Db::name('type');
             $data = self::getnosontype(0,$db,'son');
-            dd($data);
+            //dd($data);
             $this -> view -> listtype = $data;
             return view();
         }
