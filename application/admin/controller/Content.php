@@ -15,7 +15,7 @@ class Content extends Adminbase
 {
 	/**
 	 * [_initialize 初始化]
-	 * @Author:   yzm<577462987@qq.com>
+	 * @Author:   wuwu <15093565100@163.com>
 	 * @DateTime: 2017-03-03T09:55:43+0800
 	 * @since:    1.0
 	 * @return   
@@ -73,13 +73,10 @@ class Content extends Adminbase
         $type = $db -> where($map) -> select();
         if(!empty($type)){
             foreach($type as $k => $v){
-                $data = self::getnosontype($v['id'],$db,$son);
-                if(empty($data)){
-                    unset($data[$k]);
-                }
+                $type[$k][$son] = self::getnosontype($v['id'],$db,$son);
             }
         }
-        return $data;
+        return $type;
     }
 
     //修改
