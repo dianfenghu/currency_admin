@@ -69,6 +69,8 @@
 <script type="text/javascript">
     ;!function(){
         var element = layui.element(),layer = layui.layer,$ = layui.jquery,util = layui.util,form = layui.form(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+        var layedit = layui.layedit;
+        layedit.build('content'); //建立编辑器
         // 分辨率小于1024  使用内部工具组件
         if($(window).width() < 1024) {
             util.fixbar({
