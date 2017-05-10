@@ -17,6 +17,7 @@
 	<tr >
 		<th>ID</th>
 		<th>标题</th>
+		<th>分类</th>
 		<th>添加时间</th>
 		<th>状态</th>
 		<th>操作</th>
@@ -24,13 +25,14 @@
 	</thead>
 	<tbody>
 	{volist name='list' id='vo'}
-	<tr title="{$vo.describe}">
+	<tr>
 		<td>{$vo.id}</td>
 		<td>{$vo.title}</td>
-		<td>{$vo.status?'on':'off'}</td>
+		<td>{$vo.typename}</td>
+		<td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+		<td>{$vo.status ? '已发布':'未发布'}</td>
 		<td>			
-			<div class="layui-btn-group ">
-				<button class="layui-btn layui-btn-mini add" href-url="{:url('admin/content/add?pid='.$vo['id'])}">增加子分类</button>		
+			<div class="layui-btn-group ">	
 				<button class="layui-btn layui-btn-mini update" href-url="{:url('admin/content/update?id='.$vo['id'])}">编辑</button>
 				{if($debug == true)}<button class="layui-btn layui-btn-mini del" href-url="{:url('admin/content/delete?id='.$vo['id'])}">删除</button>{/if}
 			</div>

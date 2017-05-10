@@ -10,7 +10,9 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 use app\common\controller\Adminbase;
-
+use think\Db;
+use think\Input;
+use think\File;
 class Content extends Adminbase
 {
 	/**
@@ -28,9 +30,12 @@ class Content extends Adminbase
     //后台自定义菜单列表页
     public function index()
     {
-        $db = db('content');
-        $data = $db -> select();
-        $this -> view -> list = $data;  
+        $data = Db::name('content')
+			->alias('c')
+			->join('__TYPE__ y','y.id = c.type')
+			->field('y.name as typename,c.*')
+			->select();
+        $this -> view -> list = $data; 
         return view();
     }
 
@@ -47,25 +52,25 @@ class Content extends Adminbase
     //添加
     public function add(){
         if(!$this -> request -> isPost()){
-            $db = \think\Db::name('type');
+            $db = Db::name('type');
             $data = self::getnosontype(0,$db,'son');
-            //dd($data);
             $this -> view -> listtype = $data;
             return view();
         }
 
-        $data = $this -> request -> post();  
-        $data['status'] = 1;
-        if($data['type']){
+		$result = $this->validate(request()->param(), 'Content');
+        if (true !== $result) {
+            echo $result;
+        } else {
+		//	$arr = array('code'=>1);
+		//	echo json_encode($arr);die;
+			$data = request()->param();
+			$data['addtime'] = time();
+		//	$data['photo'] = $this->upload(request()->file('photo'));
 
+			$res = Db::name('content')->insert($data);
+			echo $res ? '添加成功' : '添加失败';
         }
-        //执行公共方法doadd 添加单条数据并返回id 
-        $res = $this -> doadd('content',$data);
-        if($res){
-            $data['id'] = $res;
-            return json($data);
-        }
-        return json(0);
     }
     
     protected static function getnosontype($pid,$db,$son='son'){
@@ -74,6 +79,9 @@ class Content extends Adminbase
         if(!empty($type)){
             foreach($type as $k => $v){
                 $type[$k][$son] = self::getnosontype($v['id'],$db,$son);
+				if(empty($type[$k][$son])){
+					unset($type[$k][$son]);
+				}
             }
         }
         return $type;
@@ -86,21 +94,30 @@ class Content extends Adminbase
             if(empty($id)){
                 return $this -> show404();
             }
-            $db = db('content');
-            $data = $db -> find($id);
+            $data = DB::name('content') -> find($id);
+			$type = self::getnosontype(0,DB::name('type'),'son');
             $this -> view -> vo = $data;
+            $this -> view -> listtype = $type;
             return view();
         }
         $data = $this -> request -> post();
-        if($data['status'] == 'on'){
-            $data['status'] = 1;
-        }else{
-            $data['status'] = 0;
-        }
-
+		if($this->request()->post('photo')) {
+			//上传图片
+		}
         $this -> save('content',$data);
         return json($data);
         
     }
+
+
+	//上传图片
+	protected function upload($file) {
+		$info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+		if($info){
+			return $info->getFilename(); 
+		}else{
+			return $file->getError();
+		}
+	}
 }
 
