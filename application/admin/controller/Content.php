@@ -57,20 +57,34 @@ class Content extends Adminbase
             $this -> view -> listtype = $data;
             return view();
         }
-
-		$result = $this->validate(request()->param(), 'Content');
+		$result = $this->validate($this -> request -> post(), 'Content');
         if (true !== $result) {
-            echo $result;
+            echo 0;
+            return;
         } else {
-		//	$arr = array('code'=>1);
-		//	echo json_encode($arr);die;
-			$data = request()->param();
-			$data['addtime'] = time();
-		//	$data['photo'] = $this->upload(request()->file('photo'));
-
+		
+			$data = $this -> request -> post();
+			$data['addtime'] = THINK_START_TIME;
 			$res = Db::name('content')->insert($data);
-			echo $res ? '添加成功' : '添加失败';
+			echo $res;
         }
+    }
+
+    public function content_img(){//文章缩略图
+        $file = request()->file('image');
+        $info = $file->validate(['size'=>15678,'ext'=>'jpg,png'])->move(ROOT_PATH . 'uploads');
+        if($info){
+            $data['path'] = $info->getSaveName();
+            //存入数据库
+            
+            $data['info'] = '图片上传成功'; 
+            $data['code'] = 1;
+        }else{
+            // 上传失败获取错误信息
+            $data['code'] = 0;
+            $data['error'] = $file->getError();
+        }
+        return json($data);
     }
     
     protected static function getnosontype($pid,$db,$son='son'){
@@ -101,23 +115,10 @@ class Content extends Adminbase
             return view();
         }
         $data = $this -> request -> post();
-		if($this->request()->post('photo')) {
-			//上传图片
-		}
         $this -> save('content',$data);
-        return json($data);
+        echo 1;
         
     }
 
-
-	//上传图片
-	protected function upload($file) {
-		$info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
-		if($info){
-			return $info->getFilename(); 
-		}else{
-			return $file->getError();
-		}
-	}
 }
 

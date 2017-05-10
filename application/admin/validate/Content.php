@@ -1,5 +1,5 @@
 <?php
-namespace app\common\validate;
+namespace app\admin\validate;
 use think\Validate;
 
 class Content extends Validate
