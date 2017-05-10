@@ -62,7 +62,7 @@
         
     </ul>
 </div>
-<div class="my-body">
+<div class="my-body" style="overflow-x:scroll;">
     {block name="main"}主内容{/block}
 </div>
 {js href="__PUBLIC__/static/layui/lay/dest/layui.all.js" /}
@@ -107,10 +107,10 @@
 
         //监听表单add提交
         form.on('submit(formadd)', function(data){
-            console.log(data.field);
             var obj = $(this);
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
+				console.log(res);
                 if(res){
                     layer.msg('添加成功');
                     //alert(url.substring(-3,url.length-8));
@@ -146,15 +146,35 @@
             var url = obj.attr('href-url');
             $.post(url,data.field,function(res){
                 if(res){
-                    console.log(res);
-                    // layer.msg('保存成功');
-                    // setTimeout(function(){
-                    //     url = updatepath(url,'/',3);
-                    //     window.location.href = url;
-                    // },1000);
+                   // console.log(res);
+                     layer.msg('保存成功');
+                     setTimeout(function(){
+                         url = updatepath(url,'/',3);
+                         window.location.href = url;
+                     },1000);
                 }else {
-                    alert(res)
-                   // layer.msg('保存失败');
+                    //alert(res)
+                    layer.msg('保存失败');
+                }       
+            });
+            return false;
+        });
+
+		//提交
+        form.on('submit(formtishi)', function(data){
+            var obj = $(this);
+            var url = obj.attr('href-url');
+            $.post(url,data.field,function(res){
+                if(res == 1){
+                   // console.log(res);
+                     layer.msg(res);
+                     setTimeout(function(){
+                        url = updatepath(url,'/',3);
+                         window.location.href = url;
+                    },1000);
+                }else {
+                    //alert(res)
+                    layer.msg(res);
                 }       
             });
             return false;
