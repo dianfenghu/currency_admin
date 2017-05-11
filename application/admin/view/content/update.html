@@ -3,19 +3,13 @@
 <fieldset class="layui-elem-field layui-field-title site-title"><legend><a name="pane">编辑内容 | {$vo.title}</a></legend></fieldset>
 <div class="site-text">
 	<form class="layui-form layui-form-pane" action="" method='POST' enctype="multipart/form-data">
+		<input type="hidden" name="id" value="{$vo.id}">
 		<div class="layui-form-item">
 			<label class="layui-form-label">内容标题</label>
 			<div class="layui-input-block">
 				<input type="text" name="title" required="" lay-verify="required" placeholder="请输入内容标题" autocomplete="off" class="layui-input layui-form-danger" value="{$vo.title}">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">关键字</label>
-			<div class="layui-input-block">
-				<input type="text" name="keyword" required="" placeholder="请输入文章关键字" autocomplete="off" class="layui-input layui-form-danger" value="{$vo.keyword}">
-			</div>
-		</div>
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">分类</label>
 			<div class="layui-input-block">
@@ -30,16 +24,12 @@
 				</select>
 			</div>
 		</div>
-		 <div class="layui-form-item layui-form-text">
-		<label class="layui-form-label">正文</label>
-		<div class="layui-input-block">
-		  <script id="editor" type="text/plain" style="width:100%;height:400px;" name="content">{$vo.content}</script> 
-		</div>
-	  </div>
 	  <div class="layui-form-item">
 			<label class="layui-form-label">缩略图</label>
 			<div class="layui-input-block">
-				<input type="file" name="photo" class="layui-upload-file">
+				<img src="" width="150px" height="150px" class="image" style="display:none">
+				<input type="file" name="image" class="layui-upload-file">
+				<input type="hidden" name="photo" class="uploadimages">
 			</div>
 		</div>
 	  <div class="layui-form-item">
@@ -49,41 +39,37 @@
 		  <input type="radio" name="status" value="0" title="不发布" {if condition="$vo.status eq 0"} checked {/if}><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>不发布</span></div>
 		</div>
 	  </div>
-	  <div class="layui-form-item">
-			<label class="layui-form-label">文章模板</label>
-			<div class="layui-input-block">
-			<select name="tpl">
-				<option value="1">默认模板</option>
-			  </select>
-			</div>
+	  <div class="layui-form-item layui-form-text">
+		<label class="layui-form-label">正文</label>
+		<div class="layui-input-block">
+		  <textarea id="content" name="content" style="display: none;">{$vo.content}</textarea> 
 		</div>
+	  </div>
 		<div class="layui-form-item">
-		  <button class="layui-btn" lay-submit="" lay-filter="formtishi" href-url="{:url('content/update')}">立即提交</button>
+		  <button class="layui-btn" lay-submit="" lay-filter="formupdate" href-url="{:url('content/update')}">立即提交</button>
 		</div>
 	</form>
 </div>
 
 {/block}
 {block name="js"}
-<script type="text/javascript" src="__UEDITOR__/1.4.3/ueditor.config.js"></script> 
-<script type="text/javascript" src="__UEDITOR__/1.4.3/ueditor.all.min.js"> </script> 
-<script type="text/javascript" src="__UEDITOR__/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
-layui.use('layedit', function(){
-  var layedit = layui.layedit;
-  layedit.build('LAY_demo_editor'); //建立编辑器
-});
-
 layui.upload({
-   url: "{:url('content/update')}"
+   url: "{:url('content/content_img')}"
   ,title: '上传一张图片'
-  ,ext: 'jpg|jpeg|png|gif'
+  ,ext: 'jpg|jpeg|png'
   ,type: 'file'
   ,success: function(res){
-    console.log(res); //上传成功返回值，必须为json格式
+    //console.log(res); //上传成功返回值，必须为json格式
+    if(res.code == 1){
+		$(".image").show().attr('src','/web3/currency_admin/uploads/'+res.path)
+		$(".uploadimages").attr('value',res.path)
+    	layer.msg(res.info);
+    }else if(res.code == 0){
+    	layer.msg(res.error);
+    }
   }
 }); 
-
-var ue = UE.getEditor('editor');
 </script>
 {/block}

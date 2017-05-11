@@ -26,6 +26,7 @@ class Adminbase extends Appframe
         $db = \think\Db::name('admin_menu');
         $son = 'son';
         $data = self::getmenu(0,$db,$son);
+	
         $this -> view -> adminmenu = $data;
     }
 
