@@ -11,6 +11,7 @@
 namespace app\admin\controller;
 use app\common\controller\Adminbase;
 use app\admin\model\User as UserModel;
+use think\Db;
 class User extends Adminbase
 {
 	/**
@@ -49,8 +50,8 @@ class User extends Adminbase
 
         $data = request()->except(['repassword','group_id']);
         $data['addtime'] = time();
-        $data['password'] = md5('###'.input('post.password'));
-      	$group['uid'] = db('user')->insertGetId($data);
+        $data['password'] = password_hash(request()->param('password'),config('pwd.hash'));
+      	$group['uid'] = Db::name('user')->insertGetId($data);
       	$group['group_id'] = input('group_id');
       	$id = db('auth_group_access')->insert($group);
       	$res = $id ? 1 : 0 ;

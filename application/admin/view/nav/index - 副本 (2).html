@@ -1,0 +1,41 @@
+{extend name="common@Public:admin" /}
+{block name="main"}
+<div class="layui-tab">
+  <ul class="layui-tab-title">
+    <li class="layui-this">菜单管理</li>
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+      <table class="layui-table" lay-even="" lay-skin="nob">
+  <colgroup>
+    <col width="150">
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>排序</th>
+      <th>ID</th>
+      <th>菜单名称</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody>
+  {volist name="nav" id="vo"}
+    <tr>
+      <td>{$vo.sort}</td>
+      <td>{$vo.id}</td>
+      <td>{$vo._name}</td>
+      <td>{if condition="$vo.status eq 1"} 已开启 {else/} 未开启 {/if}</td>
+      <td>
+		<button class="layui-btn layui-btn-primary layui-btn-small" ><i class="layui-icon"></i></button>
+		<button class="layui-btn layui-btn-primary layui-btn-small update" href-url="{:url('nav/edit?id='.$vo['id'])}"><i class="layui-icon"></i></button>
+		<button class="layui-btn layui-btn-primary layui-btn-small del" href-url="{:url('nav/del?id='.$vo['id'])}"><i class="layui-icon"></i></button>
+	  </td>
+    </tr>
+ {/volist}
+  </tbody>
+</table>
+{/block}

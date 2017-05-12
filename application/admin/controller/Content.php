@@ -62,21 +62,20 @@ class Content extends Adminbase
             echo 0;
             return;
         } else {
-		
 			$data = $this -> request -> post();
-			$data['addtime'] = THINK_START_TIME;
+			$data['addtime'] = time();
 			$res = Db::name('content')->insert($data);
 			echo $res;
         }
     }
 
-    public function content_img(){//文章缩略图
+	//文章缩略图
+    public function content_img(){
         $file = request()->file('image');
-        $info = $file->validate(['size'=>15678,'ext'=>'jpg,png'])->move(ROOT_PATH . 'uploads');
+        $info = $file->validate(['size'=>2000000,'ext'=>'jpg,png'])->move(ROOT_PATH . 'uploads');
         if($info){
             $data['path'] = $info->getSaveName();
             //存入数据库
-            
             $data['info'] = '图片上传成功'; 
             $data['code'] = 1;
         }else{
@@ -84,6 +83,7 @@ class Content extends Adminbase
             $data['code'] = 0;
             $data['error'] = $file->getError();
         }
+
         return json($data);
     }
     
@@ -114,7 +114,7 @@ class Content extends Adminbase
             $this -> view -> listtype = $type;
             return view();
         }
-        $data = $this -> request -> post();
+        $data = $this -> request -> param();
         $this -> save('content',$data);
         echo 1;
         
