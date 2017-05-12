@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | 文件说明：后台内容管理  
+// | 文件说明：用户管理  
 // +----------------------------------------------------------------------
 // | Author: wuwu <15093565100@163.com>
 // +----------------------------------------------------------------------
@@ -47,10 +47,10 @@ class User extends Adminbase
         	$this->assign('userGroup',$userGroup);
             return view('add',$userGroup);
         }
-
+		
         $data = request()->except(['repassword','group_id']);
         $data['addtime'] = time();
-        $data['password'] = password_hash(request()->param('password'),config('pwd.hash'));
+        $data['password'] = password_hash(request()->param('password'),PASSWORD_DEFAULT);
       	$group['uid'] = Db::name('user')->insertGetId($data);
       	$group['group_id'] = input('group_id');
       	$id = db('auth_group_access')->insert($group);
@@ -61,7 +61,7 @@ class User extends Adminbase
     //更新
 	public function update() {
 		if(request()->isGet()) {
-			$vo = db('user')
+			$vo = Db::name('user')
 				->alias('u')
 				->join('__AUTH_GROUP_ACCESS__ a','u.id = a.uid')
 				->where('id',input('id'))
@@ -76,11 +76,11 @@ class User extends Adminbase
 		if ($data['password'] == '') {
 			unset($data['password']);
 		} else {
-			$data['password'] = md5('###'.input('password'));
+			$data['password'] = password_hash(request()->param('password'),PASSWORD_DEFAULT);
 		}
 
-		$res = db('user')->update($data);
-		$g = db('auth_group_access')->where('uid',input('id'))->update(array('group_id'=>input('group_id')));
+		$res = Db::name('user')->update($data);
+		$g = Db::name('auth_group_access')->where('uid',input('id'))->update(array('group_id'=>input('group_id')));
 		$id = $g || $res;
 		return $id; 
 	}      
@@ -91,9 +91,8 @@ class User extends Adminbase
 			return false;
 		}
 
-		$res = db('user')->delete(input('id'));	
-		$id = $res ? 1 : 0;
-		return $id;
+		$res = DB::name('user')->delete(input('id'));	
+		return json(array('code'=>1,'info'=>'删除成功'));
 	}
 }
 
