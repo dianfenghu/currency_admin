@@ -30,5 +30,20 @@ class User extends Model
     		return false;
     	}
     }
+    public static function login($name, $password)
+    {
+
+        $where['name'] = $name;
+        $where['password'] = md5($password);
+
+        $user=db('user')->where($where)->find();
+        if ($user) {
+            unset($user["password"]);
+            session("ext_user", $user);
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

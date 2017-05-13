@@ -51,29 +51,28 @@ class Cache
                 self::$instance[$name] = new $class($options);
             }
         }
-        return self::$instance[$name];
+        self::$handler = self::$instance[$name];
+        return self::$handler;
     }
 
     /**
      * 自动初始化缓存
      * @access public
      * @param array         $options  配置数组
-     * @return Driver
+     * @return void
      */
     public static function init(array $options = [])
     {
         if (is_null(self::$handler)) {
             // 自动初始化缓存
             if (!empty($options)) {
-                $connect = self::connect($options);
+                self::connect($options);
             } elseif ('complex' == Config::get('cache.type')) {
-                $connect = self::connect(Config::get('cache.default'));
+                self::connect(Config::get('cache.default'));
             } else {
-                $connect = self::connect(Config::get('cache'));
+                self::connect(Config::get('cache'));
             }
-            self::$handler = $connect;
         }
-        return self::$handler;
     }
 
     /**
@@ -82,12 +81,12 @@ class Cache
      * @param string $name 缓存标识
      * @return Driver
      */
-    public static function store($name = '')
+    public static function store($name)
     {
-        if ('' !== $name && 'complex' == Config::get('cache.type')) {
-            return self::connect(Config::get('cache.' . $name), strtolower($name));
+        if ('complex' == Config::get('cache.type')) {
+            self::connect(Config::get('cache.' . $name), strtolower($name));
         }
-        return self::init();
+        return self::$handler;
     }
 
     /**
@@ -98,8 +97,9 @@ class Cache
      */
     public static function has($name)
     {
+        self::init();
         self::$readTimes++;
-        return self::init()->has($name);
+        return self::$handler->has($name);
     }
 
     /**
@@ -111,8 +111,9 @@ class Cache
      */
     public static function get($name, $default = false)
     {
+        self::init();
         self::$readTimes++;
-        return self::init()->get($name, $default);
+        return self::$handler->get($name, $default);
     }
 
     /**
@@ -125,8 +126,9 @@ class Cache
      */
     public static function set($name, $value, $expire = null)
     {
+        self::init();
         self::$writeTimes++;
-        return self::init()->set($name, $value, $expire);
+        return self::$handler->set($name, $value, $expire);
     }
 
     /**
@@ -138,8 +140,9 @@ class Cache
      */
     public static function inc($name, $step = 1)
     {
+        self::init();
         self::$writeTimes++;
-        return self::init()->inc($name, $step);
+        return self::$handler->inc($name, $step);
     }
 
     /**
@@ -151,8 +154,9 @@ class Cache
      */
     public static function dec($name, $step = 1)
     {
+        self::init();
         self::$writeTimes++;
-        return self::init()->dec($name, $step);
+        return self::$handler->dec($name, $step);
     }
 
     /**
@@ -163,8 +167,9 @@ class Cache
      */
     public static function rm($name)
     {
+        self::init();
         self::$writeTimes++;
-        return self::init()->rm($name);
+        return self::$handler->rm($name);
     }
 
     /**
@@ -175,8 +180,9 @@ class Cache
      */
     public static function clear($tag = null)
     {
+        self::init();
         self::$writeTimes++;
-        return self::init()->clear($tag);
+        return self::$handler->clear($tag);
     }
 
     /**
@@ -187,9 +193,10 @@ class Cache
      */
     public static function pull($name)
     {
+        self::init();
         self::$readTimes++;
         self::$writeTimes++;
-        return self::init()->pull($name);
+        return self::$handler->pull($name);
     }
 
     /**
@@ -202,8 +209,9 @@ class Cache
      */
     public static function remember($name, $value, $expire = null)
     {
+        self::init();
         self::$readTimes++;
-        return self::init()->remember($name, $value, $expire);
+        return self::$handler->remember($name, $value, $expire);
     }
 
     /**
@@ -216,7 +224,8 @@ class Cache
      */
     public static function tag($name, $keys = null, $overlay = false)
     {
-        return self::init()->tag($name, $keys, $overlay);
+        self::init();
+        return self::$handler->tag($name, $keys, $overlay);
     }
 
 }

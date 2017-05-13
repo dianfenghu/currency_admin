@@ -11,6 +11,7 @@
 
 namespace think\model\relation;
 
+use think\Db;
 use think\db\Query;
 use think\Loader;
 use think\Model;
@@ -19,7 +20,7 @@ use think\model\Relation;
 class HasMany extends Relation
 {
     /**
-     * 构造函数
+     * 架构函数
      * @access public
      * @param Model  $parent     上级模型对象
      * @param string $model      模型名
@@ -44,16 +45,9 @@ class HasMany extends Relation
     public function getRelation($subRelation = '', $closure = null)
     {
         if ($closure) {
-            call_user_func_array($closure, [ & $this->query]);
+            call_user_func_array($closure, [& $this->query]);
         }
-        $list   = $this->relation($subRelation)->select();
-        $parent = clone $this->parent;
-
-        foreach ($list as &$model) {
-            $model->setParent($parent);
-        }
-
-        return $list;
+        return $this->relation($subRelation)->select();
     }
 
     /**
@@ -90,12 +84,7 @@ class HasMany extends Relation
                 if (!isset($data[$result->$localKey])) {
                     $data[$result->$localKey] = [];
                 }
-
-                foreach ($data[$result->$localKey] as &$relationModel) {
-                    $relationModel->setParent(clone $result);
-                }
-
-                $result->setRelation($attr, $this->resultSetBuild($data[$result->$localKey]));
+                $result->setAttr($attr, $this->resultSetBuild($data[$result->$localKey]));
             }
         }
     }
@@ -119,12 +108,7 @@ class HasMany extends Relation
             if (!isset($data[$result->$localKey])) {
                 $data[$result->$localKey] = [];
             }
-
-            foreach ($data[$result->$localKey] as &$relationModel) {
-                $relationModel->setParent(clone $result);
-            }
-
-            $result->setRelation(Loader::parseName($relation), $this->resultSetBuild($data[$result->$localKey]));
+            $result->setAttr(Loader::parseName($relation), $this->resultSetBuild($data[$result->$localKey]));
         }
     }
 
@@ -141,7 +125,7 @@ class HasMany extends Relation
         $count    = 0;
         if (isset($result->$localKey)) {
             if ($closure) {
-                call_user_func_array($closure, [ & $this->query]);
+                call_user_func_array($closure, [& $this->query]);
             }
             $count = $this->query->where([$this->foreignKey => $result->$localKey])->count();
         }
@@ -157,14 +141,14 @@ class HasMany extends Relation
     public function getRelationCountQuery($closure)
     {
         if ($closure) {
-            call_user_func_array($closure, [ & $this->query]);
+            call_user_func_array($closure, [& $this->query]);
         }
 
         return $this->query->where([
             $this->foreignKey => [
                 'exp',
-                '=' . $this->parent->getTable() . '.' . $this->parent->getPk(),
-            ],
+                '=' . $this->parent->getTable() . '.' . $this->parent->getPk()
+            ]
         ])->fetchSql()->count();
     }
 
@@ -183,7 +167,7 @@ class HasMany extends Relation
         $foreignKey = $this->foreignKey;
         // 预载入关联查询 支持嵌套预载入
         if ($closure) {
-            call_user_func_array($closure, [ & $model]);
+            call_user_func_array($closure, [& $model]);
         }
         $list = $model->where($where)->with($subRelation)->select();
 
@@ -199,7 +183,7 @@ class HasMany extends Relation
      * 保存（新增）当前关联数据对象
      * @access public
      * @param mixed $data 数据 可以使用数组 关联模型对象 和 关联对象的主键
-     * @return Model|false
+     * @return integer
      */
     public function save($data)
     {
@@ -207,9 +191,9 @@ class HasMany extends Relation
             $data = $data->getData();
         }
         // 保存关联表数据
-        $model                   = new $this->model;
         $data[$this->foreignKey] = $this->parent->{$this->localKey};
-        return $model->save($data) ? $model : false;
+        $model                   = new $this->model;
+        return $model->save($data);
     }
 
     /**
@@ -233,14 +217,13 @@ class HasMany extends Relation
      * @param string  $operator 比较操作符
      * @param integer $count    个数
      * @param string  $id       关联表的统计字段
-     * @param string  $joinType JOIN类型
      * @return Query
      */
-    public function has($operator = '>=', $count = 1, $id = '*', $joinType = 'INNER')
+    public function has($operator = '>=', $count = 1, $id = '*')
     {
         $table = $this->query->getTable();
         return $this->parent->db()->alias('a')
-            ->join($table . ' b', 'a.' . $this->localKey . '=b.' . $this->foreignKey, $joinType)
+            ->join($table . ' b', 'a.' . $this->localKey . '=b.' . $this->foreignKey, $this->joinType)
             ->group('b.' . $this->foreignKey)
             ->having('count(' . $id . ')' . $operator . $count);
     }

@@ -139,9 +139,14 @@ return [
     ],
 
     // 视图输出字符串内容替换
-    'view_replace_str'       => [
-        '__PUBLIC__' => '',
-		'__UEDITOR__' => '/ueditor', //百度编辑器
+  //   'view_replace_str'       => [
+  //       '__PUBLIC__' => '',
+		// '__UEDITOR__' => '/ueditor', //百度编辑器
+  //   ],
+      'view_replace_str'       => [
+        '__PUBLIC__' => '/www/hdf/currency_admin/public',
+        '__UEDITOR__' => '/ueditor', //百度编辑器
+
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
@@ -239,4 +244,11 @@ return [
         'var_page'  => 'page',
         'list_rows' => 10,
     ],
+    //验证码
+    'captcha'  => [
+    // 字体大小'
+    'fontSize' => 35,
+    // 验证码长度（位数）'l
+   ' length'   => 4,
+],
 ];

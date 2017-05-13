@@ -60,9 +60,6 @@ class Sqlite extends Builder
         $key = trim($key);
         if (strpos($key, '.')) {
             list($table, $key) = explode('.', $key, 2);
-            if ('__TABLE__' == $table) {
-                $table = $this->query->getTable();
-            }
             if (isset($options['alias'][$table])) {
                 $table = $options['alias'][$table];
             }

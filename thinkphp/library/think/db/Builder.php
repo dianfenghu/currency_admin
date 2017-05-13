@@ -32,7 +32,7 @@ abstract class Builder
     protected $deleteSql    = 'DELETE FROM %TABLE% %USING% %JOIN% %WHERE% %ORDER%%LIMIT% %LOCK%%COMMENT%';
 
     /**
-     * 构造函数
+     * 架构函数
      * @access public
      * @param Connection    $connection 数据库连接对象实例
      * @param Query         $query      数据库查询对象实例
@@ -98,18 +98,14 @@ abstract class Builder
         $result = [];
         foreach ($data as $key => $val) {
             $item = $this->parseKey($key, $options);
-            if (is_object($val) && method_exists($val, '__toString')) {
-                // 对象数据写入
-                $val = $val->__toString();
-            }
             if (false === strpos($key, '.') && !in_array($key, $fields, true)) {
                 if ($options['strict']) {
                     throw new Exception('fields not exists:[' . $key . ']');
                 }
-            } elseif (is_null($val)) {
-                $result[$item] = 'NULL';
             } elseif (isset($val[0]) && 'exp' == $val[0]) {
                 $result[$item] = $val[1];
+            } elseif (is_null($val)) {
+                $result[$item] = 'NULL';
             } elseif (is_scalar($val)) {
                 // 过滤非标量数据
                 if (0 === strpos($val, ':') && $this->query->isBind(substr($val, 1))) {
@@ -119,6 +115,9 @@ abstract class Builder
                     $this->query->bind('__data__' . $key, $val, isset($bind[$key]) ? $bind[$key] : PDO::PARAM_STR);
                     $result[$item] = ':__data__' . $key;
                 }
+            } elseif (is_object($val) && method_exists($val, '__toString')) {
+                // 对象数据写入
+                $result[$item] = $val->__toString();
             }
         }
         return $result;
@@ -222,14 +221,6 @@ abstract class Builder
     protected function parseWhere($where, $options)
     {
         $whereStr = $this->buildWhere($where, $options);
-        if (!empty($options['soft_delete'])) {
-            // 附加软删除条件
-            list($field, $condition) = $options['soft_delete'];
-
-            $binds    = $this->query->getFieldsBind($options);
-            $whereStr = $whereStr ? '( ' . $whereStr . ' ) AND ' : '';
-            $whereStr = $whereStr . $this->parseWhereItem($field, $condition, '', $options, $binds);
-        }
         return empty($whereStr) ? '' : ' WHERE ' . $whereStr;
     }
 
@@ -259,10 +250,7 @@ abstract class Builder
                     // 使用闭包查询
                     $query = new Query($this->connection);
                     call_user_func_array($value, [ & $query]);
-                    $whereClause = $this->buildWhere($query->getOptions('where'), $options);
-                    if (!empty($whereClause)) {
-                        $str[] = ' ' . $key . ' ( ' . $whereClause . ' )';
-                    }
+                    $str[] = ' ' . $key . ' ( ' . $this->buildWhere($query->getOptions('where'), $options) . ' )';
                 } elseif (strpos($field, '|')) {
                     // 不同字段使用相同查询条件（OR）
                     $array = explode('|', $field);
@@ -288,7 +276,6 @@ abstract class Builder
 
             $whereStr .= empty($whereStr) ? substr(implode(' ', $str), strlen($key) + 1) : implode(' ', $str);
         }
-
         return $whereStr;
     }
 
@@ -389,7 +376,7 @@ abstract class Builder
                 } else {
                     $zone = implode(',', $this->parseValue($value, $field));
                 }
-                $whereStr .= $key . ' ' . $exp . ' (' . (empty($zone) ? "''" : $zone) . ')';
+                $whereStr .= $key . ' ' . $exp . ' (' . $zone . ')';
             }
         } elseif (in_array($exp, ['NOT BETWEEN', 'BETWEEN'])) {
             // BETWEEN 查询

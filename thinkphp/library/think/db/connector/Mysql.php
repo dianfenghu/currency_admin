@@ -21,8 +21,6 @@ use think\Log;
 class Mysql extends Connection
 {
 
-    protected $builder = '\\think\\db\\builder\\Mysql';
-
     /**
      * 解析pdo连接的dsn信息
      * @access protected
@@ -128,19 +126,5 @@ class Mysql extends Connection
     protected function supportSavepoint()
     {
         return true;
-    }
-
-    /**
-     * 是否断线
-     * @access protected
-     * @param \PDOException  $e 异常对象
-     * @return bool
-     */
-    protected function isBreak($e)
-    {
-        if (false !== stripos($e->getMessage(), 'server has gone away')) {
-            return true;
-        }
-        return false;
     }
 }

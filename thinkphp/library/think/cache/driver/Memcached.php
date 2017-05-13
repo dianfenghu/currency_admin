@@ -27,7 +27,7 @@ class Memcached extends Driver
     ];
 
     /**
-     * 构造函数
+     * 架构函数
      * @param array $options 缓存参数
      * @access public
      */
@@ -125,10 +125,7 @@ class Memcached extends Driver
     public function inc($name, $step = 1)
     {
         $key = $this->getCacheKey($name);
-        if ($this->handler->get($key)) {
-            return $this->handler->increment($key, $step);
-        }
-        return $this->handler->set($key, $step);
+        return $this->handler->increment($key, $step);
     }
 
     /**

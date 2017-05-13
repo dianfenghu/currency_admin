@@ -102,7 +102,7 @@ class Validate
     protected $batch = false;
 
     /**
-     * 构造函数
+     * 架构函数
      * @access public
      * @param array $rules 验证规则
      * @param array $message 验证提示信息
@@ -456,13 +456,11 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function egt($value, $rule, $data)
+    protected function egt($value, $rule)
     {
-        $val = $this->getDataValue($data, $rule);
-        return !is_null($val) && $value >= $val;
+        return $value >= $rule;
     }
 
     /**
@@ -470,13 +468,11 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function gt($value, $rule, $data)
+    protected function gt($value, $rule)
     {
-        $val = $this->getDataValue($data, $rule);
-        return !is_null($val) && $value > $val;
+        return $value > $rule;
     }
 
     /**
@@ -484,13 +480,11 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function elt($value, $rule, $data)
+    protected function elt($value, $rule)
     {
-        $val = $this->getDataValue($data, $rule);
-        return !is_null($val) && $value <= $val;
+        return $value <= $rule;
     }
 
     /**
@@ -498,13 +492,11 @@ class Validate
      * @access protected
      * @param mixed     $value  字段值
      * @param mixed     $rule  验证规则
-     * @param array     $data  数据
      * @return bool
      */
-    protected function lt($value, $rule, $data)
+    protected function lt($value, $rule)
     {
-        $val = $this->getDataValue($data, $rule);
-        return !is_null($val) && $value < $val;
+        return $value < $rule;
     }
 
     /**
@@ -576,7 +568,7 @@ class Validate
                 break;
             case 'ip':
                 // 是否为IP地址
-                $result = $this->filter($value, [FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6]);
+                $result = $this->filter($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6);
                 break;
             case 'url':
                 // 是否为一个URL地址
@@ -664,7 +656,7 @@ class Validate
         if (!in_array($rule, ['ipv4', 'ipv6'])) {
             $rule = 'ipv4';
         }
-        return $this->filter($value, [FILTER_VALIDATE_IP, 'ipv6' == $rule ? FILTER_FLAG_IPV6 : FILTER_FLAG_IPV4]);
+        return $this->filter($value, FILTER_VALIDATE_IP, 'ipv6' == $rule ? FILTER_FLAG_IPV6 : FILTER_FLAG_IPV4);
     }
 
     /**
@@ -880,7 +872,6 @@ class Validate
             list($rule, $param) = explode(',', $rule);
         } elseif (is_array($rule)) {
             $param = isset($rule[1]) ? $rule[1] : null;
-            $rule  = $rule[0];
         } else {
             $param = null;
         }
@@ -1188,15 +1179,13 @@ class Validate
     /**
      * 获取数据值
      * @access protected
-     * @param array $data 数据
-     * @param string $key 数据标识 支持二维
+     * @param array     $data  数据
+     * @param string    $key  数据标识 支持二维
      * @return mixed
      */
     protected function getDataValue($data, $key)
     {
-        if (is_numeric($key)) {
-            $value = $key;
-        } elseif (strpos($key, '.')) {
+        if (strpos($key, '.')) {
             // 支持二维数组验证
             list($name1, $name2) = explode('.', $key);
             $value               = isset($data[$name1][$name2]) ? $data[$name1][$name2] : null;

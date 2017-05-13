@@ -19,7 +19,6 @@ use think\db\Connection;
  */
 class Pgsql extends Connection
 {
-    protected $builder = '\\think\\db\\builder\\Pgsql';
 
     /**
      * 解析pdo连接的dsn信息
