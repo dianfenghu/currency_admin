@@ -87,12 +87,27 @@ class Group extends Adminbase
     } 
 
     public function auth() {
-            $userRules = Db::name('auth_group')->where('id',input('id'))->find();
+            $groupRules = Db::name('auth_group')->where('id',input('id'))->find();
             $rules = $this->menuList();
 			$this->assign('auth',$rules);
-			$this->assign('user',$userRules);
+			$this->assign('groupRules',$groupRules);
 			return $this->fetch(); 
     }
+
+	public function updateAuth() {
+		$data = request()->param();
+		if(empty($data)) {
+			return false;
+		}
+
+		$data['rules'] = implode(',',$data['rules']);
+		$res = Db::name('auth_group')->update($data);
+		if(false !==$res) {
+			return $this->success('保存成功');
+		}else{
+			return $this->error('保存失败');
+		}
+	}
 
     protected static function menuList($pid=0) {
         $data = db('auth_rule')->where('pid',$pid)->select();
