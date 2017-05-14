@@ -1,45 +1,50 @@
-{extend name="common@Public:admin" /}
-{block name="main"}
-<fieldset class="layui-elem-field layui-field-title site-title">
-    <legend><a name="nob">分类</a></legend>
-</fieldset>
-<button class="layui-btn add" href-url="{:url('admin/group/add')}">
-  <i class="layui-icon">&#xe608;</i> 添加用户组
-</button>
-<hr>
-
-<div class="layui-form">
-<form class="layui-form layui-form-pane" action="" method="post">
-  <table class="layui-table">
-    <thead>
-      <tr>
-        <th><input type="checkbox" lay-skin="primary" lay-filter="allChoose"></th>
-        <th colspan="10" text-align="center">权限管理</th>
-      </tr> 
-    </thead>
-    <tbody>
-    {volist name="auth" id="auth"}
-      <tr>
-        <td width="150"><input type="checkbox" name="group_rules[]" lay-skin="primary" value="{$auth.id}">{$auth.title}</td>
-        <td class="rows">
-        	{volist name="auth['zi']" id="zi"}
-        	<input type="checkbox"  name="group_rules[]"  lay-skin="primary">1111
-        	{/volist}
-        </td>
-      </tr>
-    {/volist}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="__PUBLIC__/static/layui/css/layui.css"  media="all">
+</head>
+<body> 
+<form class="layui-form layui-form-pane" action="{:url('group/updateAuth')}" method='POST'>
+<table class="layui-table">
+  <colgroup>
+    <col width="150">
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
     <tr>
-		<td colspan="2" align="center">
-			<input type="hidden" name="id" value="{$rules.id}">
-			<button class="layui-btn layui-btn-normal layui-btn-radius" lay-submit="" lay-filter="formupdate" href-url="{:url('group/auth')}">保存</button>
-			<button class="layui-btn layui-btn-danger layui-btn-radius">取消</button>
-		</td>
+      <th width="100px;">选项</th>
+      <th colspan="3" align="center">权限分配</th>
+    </tr> 
+  </thead>
+  <tbody>
+  {volist name="auth" id="authMenu"}
+    <tr>
+      <td><label><input type="checkbox" name="rules[]" lay-skin="primary" lay-filter="allChoose" value="{$authMenu.id}" {in name="authMenu.id" value="$groupRules.rules"} checked {/in}>{$authMenu.title}</label></td>
+	  {volist name="authMenu['zi']" id="zi"}
+      <td><label><input type="checkbox" name="rules[]" lay-skin="primary" lay-filter="allChoose" value="{$zi.id}" {in name="zi.id" value="$groupRules.rules"} checked {/in}>{$zi['title']}</label></td>
+	  {/volist}
     </tr>
-    </tbody>
-  </table>
- </form>
-</div>    
-{/block}
-{block name="js"}
-
-{/block}
+  {/volist}
+  </tbody>
+  <tr>
+	<td colspan="4" align="center">
+		<input type="hidden" name="id" value="{$groupRules.id}">
+		<button class="layui-btn">保存</button>
+		<button class="layui-btn layui-btn-primary" type="ret">重置</button>
+	</td>
+  </tr>
+</table>
+</form>
+</body>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script>
+	
+</script>
+</html>

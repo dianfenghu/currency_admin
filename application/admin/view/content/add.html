@@ -26,8 +26,10 @@
 		
 		<div class="layui-form-item">
 			<label class="layui-form-label">缩略图</label>
-			<div class="layui-input-block">
+			<div class="layui-input-block img">
+				<img src="" width="150px" height="150px" class="image" style="display:none">
 				<input type="file" name="image" class="layui-upload-file">
+				<input type="hidden" name="photo" class="uploadimages">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -51,8 +53,8 @@
 
 {/block}
 {block name="js"}
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
-
 layui.upload({
    url: "{:url('content/content_img')}"
   ,title: '上传一张图片'
@@ -61,12 +63,13 @@ layui.upload({
   ,success: function(res){
     //console.log(res); //上传成功返回值，必须为json格式
     if(res.code == 1){
+		$(".image").show().attr('src','/web3/currency_admin/uploads/'+res.path)
+		$(".uploadimages").attr('value',res.path)
     	layer.msg(res.info);
     }else if(res.code == 0){
     	layer.msg(res.error);
     }
   }
 }); 
-
 </script>
 {/block}

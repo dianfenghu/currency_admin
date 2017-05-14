@@ -44,23 +44,22 @@
 <div class="my-side">
     <ul class="layui-nav layui-nav-tree" lay-filter="side">
         <li class="layui-nav-item"><a href="javascript:;" href-url="{:url('index/wwwset')}">网站设置</a></li>
-        {if($debug == true)}<li class="layui-nav-item"><a href="javascript:;" href-url="{:url('AdminMenu/index')}">后台菜单</a></li>{/if}     
-        {volist name="adminmenu" id="vomenu"}
-            {eq name="vomenu.method" value="x"}
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">{$vomenu.name}</a>
-                    <dl class="layui-nav-child">
-                        {volist name='vomenu.son' id='sonmenu'}
-                        <dd class=""><a href="javascript:;" href-url="{:url($sonmenu['controller'].'/'.$sonmenu['method'])}">{$sonmenu.name}</a></dd>
-                        {/volist}
-                    </dl>
-                </li>
-            {else/}
-                <li class="layui-nav-item"><a href="javascript:;" href-url="{:url($vomenu['controller'].'/'.$vomenu['method'])}">{$vomenu.name}</a></li>
-            {/eq}
-        {/volist}
-        
-    </ul>
+		{volist name="adminmenu" id="fatherMenu"}
+		{if condition="$fatherMenu['son']"}
+			  <li class="layui-nav-item layui-nav-itemed">
+				<a href="javascript:;">{$fatherMenu.name}</a>
+				<dl class="layui-nav-child">
+				{volist name="fatherMenu['son']" id="children"}
+				  <dd><a href="{:url($children['controller'].'/'.$children['method'])}">{$children.name}</a></dd>
+				{/volist}
+				</dl>
+				
+			  </li>
+		{else/}
+			  <li class="layui-nav-item"><a href="">{$fatherMenu.name}</a></li>
+		{/if}
+		{/volist}
+</ul>
 </div>
 <div class="my-body" style="overflow-x:scroll;">
     {block name="main"}主内容{/block}
@@ -196,16 +195,16 @@
          $('.del').click(function(){
             var url = $(this).attr('href-url');
             var obj = $(this);
-            layer.confirm('非开发人员，请勿删除', function(index){ 
+            layer.confirm('你确定要删除吗?', function(index){ 
                 layer.close(index);
                 setTimeout(function(){
                     $.get(url,function(data){
-                        if(data){
+                        if(data.code == 1){
                             obj.parents("tr").remove();
                             layer.msg('删除成功');
                         }else{
-                            obj.parents("tr").remove();
-                            layer.msg('已删除');
+                           // obj.parents("tr").remove();
+                            layer.msg(data.info);
                         }           
                     },'json');
                 },1000);

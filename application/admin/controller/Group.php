@@ -11,6 +11,7 @@
 namespace app\admin\controller;
 use app\common\controller\Adminbase;
 use app\admin\model\AuthGroup;
+use think\Db;
 class Group extends Adminbase
 {
 	/**
@@ -86,24 +87,27 @@ class Group extends Adminbase
     } 
 
     public function auth() {
-            $userRules = db('auth_group')->where('id',input('id'))->field('rules')->find();
-            $userRules = explode(',',$userRules['rules']);
+            $groupRules = Db::name('auth_group')->where('id',input('id'))->find();
             $rules = $this->menuList();
-            foreach($rules as &$v) {
-                if(in_array($v['id'],$userRules)) {
-                    $v['checkbox'] = 'checked';
-                }
-
-                foreach($v['zi'] as &$z) {
-                    if(in_array($z['id'],$userRules)) {
-                        $z['checkbox'] = 'checked';
-                    }
-                }
-            }
-
-
-            echo json_encode($rules);
+			$this->assign('auth',$rules);
+			$this->assign('groupRules',$groupRules);
+			return $this->fetch(); 
     }
+
+	public function updateAuth() {
+		$data = request()->param();
+		if(empty($data)) {
+			return false;
+		}
+
+		$data['rules'] = implode(',',$data['rules']);
+		$res = Db::name('auth_group')->update($data);
+		if(false !==$res) {
+			return $this->success('保存成功');
+		}else{
+			return $this->error('保存失败');
+		}
+	}
 
     protected static function menuList($pid=0) {
         $data = db('auth_rule')->where('pid',$pid)->select();
